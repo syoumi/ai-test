@@ -1,5 +1,5 @@
 var removePunctuation = (word) => {
-  return word.replace(/[,;.?!#@():/]+/);
+  return word.replace(/[,;.?!#@():/]+/, "");
 };
 
 module.exports = {

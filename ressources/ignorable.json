@@ -4,6 +4,7 @@
     "le",
     "la",
     "les",
+    "l'",
     "mon",
     "ton",
     "son",
@@ -16,6 +17,7 @@
     "leur",
     "leurs",
     "lui",
+    "elle",
     "de",
     "du",
     "je",
@@ -23,6 +25,7 @@
     "il",
     "nous",
     "vous",
-    "ils"
+    "ils",
+    "elles"
   ]
 }
