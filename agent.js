@@ -94,6 +94,7 @@ var findMatch = (text, minPercent) => {
     }
   }
 
+
   console.log(words);
   console.log(`Action ${data[maxActionIndex].action} , percent ${maxActionPercent}`);
 
@@ -107,11 +108,13 @@ var findMatch = (text, minPercent) => {
   }
 };
 
+
 var message = {
   input: undefined,
   output: undefined,
   text: "Je veux vraiment un autre test"
 };
 
-var answer = handleMessage(message);
+
+var answer = handleMessage(message).answer;
 console.log((answer) ? answer : "J'ai pas compris ce que vous voulez dire");
