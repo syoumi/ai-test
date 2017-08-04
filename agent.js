@@ -64,10 +64,10 @@ var findExactMatch = (text) => {
 // TODO errors here
 var findMatch = (text, minPercent) => {
   var words = text.split(/[ ,;.]+/);
-  words.forEach((word) => {
-    word = removePunctuation(word);
-    console.log(word);
-  });
+  for (var i = 0; i < words.length; i++) {
+    words[i] = removePunctuation(words[i]);
+  }
+
   console.log(words);
 };
 
