@@ -41,7 +41,17 @@ var handleMessage = (message) => {
         answer: entry.answers[index]
       };
     } else {
-      return findMatch(text, 30);
+      var entry = findMatch(text, 10);
+      if (entry) {
+        // generating random index
+        var index = parseInt(Math.random() * entry.answers.length);
+        return {
+          action: entry.action,
+          answer: entry.answers[index]
+        };
+      } else {
+        return undefined;
+      }
     }
   } else {
     console.log('no text');
@@ -84,26 +94,27 @@ var findMatch = (text, minPercent) => {
     }
   }
 
+
   console.log(words);
   console.log(`Action ${data[maxActionIndex].action} , percent ${maxActionPercent}`);
-  if(maxActionPercent >= minPercent){
-    var index = parseInt(Math.random() * data[maxActionIndex].answers.length);
-    return {
-      action: data[maxActionIndex].action,
-      answer: data[maxActionIndex].answers[index]
-    };
+
+  if (maxActionPercent >= minPercent) {
+    console.log('Thats it');
+    return data[maxActionIndex];
   }
-
-
+  else {
+    // TODO use next method
+    return undefined;
+  }
 };
 
 
 var message = {
   input: undefined,
   output: undefined,
-  text: "comment ça va?"
+  text: "Je veux vraiment un autre test"
 };
 
 
-var answer = handleMessage(message);
-console.log((answer) ? answer.answer : "J'ai pas compris ce que vous voulez dire");
+var answer = handleMessage(message).answer;
+console.log((answer) ? answer : "J'ai pas compris ce que vous voulez dire");
