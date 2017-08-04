@@ -41,7 +41,7 @@ var handleMessage = (message) => {
         answer: entry.answers[index]
       };
     } else {
-      return findMatch(text, 0);
+      return findMatch(text, 30);
     }
   } else {
     console.log('no text');
@@ -86,12 +86,14 @@ var findMatch = (text, minPercent) => {
 
   console.log(words);
   console.log(`Action ${data[maxActionIndex].action} , percent ${maxActionPercent}`);
+  if(maxActionPercent >= minPercent){
+    var index = parseInt(Math.random() * data[maxActionIndex].answers.length);
+    return {
+      action: data[maxActionIndex].action,
+      answer: data[maxActionIndex].answers[index]
+    };
+  }
 
-  var index = parseInt(Math.random() * data[maxActionIndex].answers.length);
-  return {
-    action: data[maxActionIndex].action,
-    answer: data[maxActionIndex].answers[index]
-  };
 
 };
 
@@ -99,7 +101,7 @@ var findMatch = (text, minPercent) => {
 var message = {
   input: undefined,
   output: undefined,
-  text: "autre"
+  text: "comment ça va?"
 };
 
 
