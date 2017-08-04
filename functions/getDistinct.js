@@ -8,7 +8,6 @@ var getDistinct= (keywords) => {
     tab.forEach((word)=> {
       if (distincts.indexOf(word) > -1) distincts.push(word);
     })
-
   });
 
   return  distincts;

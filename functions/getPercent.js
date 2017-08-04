@@ -12,6 +12,11 @@ var getPercent= (words, keywords)=> {
     });
   });
 
+  var wordsPercent = counter * 100 / words.length ;
+  var keywordsPercent = counter * 100 / keywords.length ;
+
+  return ( wordsPercent + keywordsPercent ) / 2;
+
 
 }
 

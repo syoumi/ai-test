@@ -116,5 +116,6 @@ var message = {
 };
 
 
+
 var answer = handleMessage(message).answer;
 console.log((answer) ? answer : "J'ai pas compris ce que vous voulez dire");
