@@ -104,4 +104,4 @@ var message = {
 
 
 var answer = handleMessage(message);
-console.log((answer) ? answer : "J'ai pas compris ce que vous voulez dire");
+console.log((answer) ? answer.answer : "J'ai pas compris ce que vous voulez dire");
