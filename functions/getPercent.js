@@ -6,8 +6,9 @@ var getPercent= (words, keywords)=> {
 
   words.forEach((word) => {
     keywords.forEach((keyword) => {
-      if (word === keyword.toLowerCase().trim()) {
+      if (word === keyword) {
         counter++;
+        console.log(`found ${word}`);
       }
     });
   });
@@ -16,11 +17,9 @@ var getPercent= (words, keywords)=> {
   var keywordsPercent = counter * 100 / keywords.length ;
 
   return ( wordsPercent + keywordsPercent ) / 2;
-
-
-}
-
+  // return wordsPercent;
+};
 
 module.exports= {
   getPercent
-}
+};

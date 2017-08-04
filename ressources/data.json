@@ -4,8 +4,8 @@
     {
       "action": "testAction",
       "keywords": [
-        "Test?",
-        "test ?",
+        "Test",
+        "test",
         "Test",
         "Faire un test",
         "je veux faire un test"
@@ -23,6 +23,31 @@
         "Deuxième test",
         "autre test",
         "c'est un autre test!"
+      ],
+      "answers": [
+        "Ce test également est une réussite..",
+        "Deuxième test passe également",
+        "Autre test réussit"
+      ]
+    },
+    {
+      "action": "thirdAction",
+      "keywords": [
+        "vendre appartement",
+        "vente appartement"
+      ],
+      "answers": [
+        "Ce test également est une réussite..",
+        "Deuxième test passe également",
+        "Autre test réussit"
+      ]
+    },
+    {
+      "action": "fourthAction",
+      "keywords": [
+        "location appartement",
+        "louer appartement",
+        "appartement louer"
       ],
       "answers": [
         "Ce test également est une réussite..",

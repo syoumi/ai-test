@@ -4,14 +4,12 @@ var getDistinct= (keywords) => {
 
 
   keywords.forEach((keyword) => {
-    var tab= keyword.split(' ');
+    var tab = keyword.split(' ');
     tab.forEach((word)=> {
-      if (distincts.indexOf(word) > -1) distincts.push(word);
-    })
+      if (distincts.indexOf(word.toLowerCase()) == -1) distincts.push(word.toLowerCase());
+    });
   });
-
   return  distincts;
-
 }
 
 
