@@ -84,9 +84,15 @@ var findMatch = (text, minPercent) => {
     }
   }
 
-
   console.log(words);
   console.log(`Action ${data[maxActionIndex].action} , percent ${maxActionPercent}`);
+
+  var index = parseInt(Math.random() * data[maxActionIndex].answers.length);
+  return {
+    action: data[maxActionIndex].action,
+    answer: data[maxActionIndex].answers[index]
+  };
+
 };
 
 
@@ -97,5 +103,5 @@ var message = {
 };
 
 
-var answer = handleMessage(message).answer;
+var answer = handleMessage(message);
 console.log((answer) ? answer : "J'ai pas compris ce que vous voulez dire");
