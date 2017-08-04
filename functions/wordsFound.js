@@ -1,3 +1,6 @@
+const {checkEquality} = require('./checkEquality');
+
+
 var wordsFound = (words, text) => {
   //words is an array of words
   //text is a string in where we look for words
@@ -5,7 +8,7 @@ var wordsFound = (words, text) => {
   var counter = 0;
   words.forEach((word) => {
     tab.forEach((item) => {
-      if (word === item) {
+      if (checkEquality(word, item)) {
         counter++;
       }
     });

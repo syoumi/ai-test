@@ -9,8 +9,9 @@ const {removePunctuation} = require('./functions/removePunctuation');
 const {wordsFound} = require('./functions/wordsFound');
 const {getDistinct} = require('./functions/getDistinct');
 const {getPercent} = require('./functions/getPercent');
+const {checkEquality} = require('./functions/checkEquality');
+const {MIN_PERCENT} = require('./include/config');
 
-const MIN_PERCENT = 90;
 
 
 var jsonData = fs.readFileSync('./ressources/data.json');
@@ -69,7 +70,7 @@ var findExactMatch = (text) => {
   foundEntry = undefined;
   data.forEach((entry) => {
     entry.keywords.forEach((keyword) => {
-      if (keyword.toLowerCase() === text) {
+      if (checkEquality(text, keyword)) {
         foundEntry = entry;
       }
     });
@@ -137,7 +138,7 @@ var findMatch = (text, minPercent) => {
 var message = {
   input: undefined,
   output: undefined,
-  text: "Vendre et louer appartement"
+  text: "garçonnière loure"
 };
 
 var answer = handleMessage(message);

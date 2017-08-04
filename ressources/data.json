@@ -7,8 +7,8 @@
         "Test",
         "test",
         "Test",
-        "Faire un test",
-        "je veux faire un test"
+        "Faire test",
+        "veux faire test"
       ],
       "answers": [
         "Test réussit!",
@@ -48,6 +48,20 @@
         "location appartement",
         "louer appartement",
         "appartement louer"
+      ],
+      "answers": [
+        "Ce test également est une réussite..",
+        "Deuxième test passe également",
+        "Autre test réussit"
+      ]
+    },
+    {
+      "action": "studioAction",
+      "keywords": [
+        "louer studio",
+        "vendre studio",
+        "studio location",
+        "studio louer"
       ],
       "answers": [
         "Ce test également est une réussite..",
