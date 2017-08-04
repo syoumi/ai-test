@@ -70,13 +70,13 @@ var findMatch = (text, minPercent) => {
   console.log(words);
 };
 
+
 var message = {
   input: undefined,
   output: undefined,
-  text: "C'est! magnifique!, vraiment!"
+  text: "je veux faire un test"
 };
 
 
-
-var answer = handleMessage(message);
+var answer = handleMessage(message).answer;
 console.log((answer) ? answer : "J'ai pas compris ce que vous voulez dire");
