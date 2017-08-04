@@ -6,6 +6,7 @@
 const fs = require('fs');
 
 const {removePunctuation} = require('./functions/removePunctuation');
+const {wordsFound} = require('./functions/wordsFound');
 
 var jsonData = fs.readFileSync('./ressources/data.json');
 var ignorable = fs.readFileSync('./ressources/ignorable.json');
@@ -61,20 +62,38 @@ var findExactMatch = (text) => {
   return foundEntry;
 };
 
-// TODO errors here
 var findMatch = (text, minPercent) => {
   var words = text.split(/[ ,;.]+/);
   for (var i = 0; i < words.length; i++) {
     words[i] = removePunctuation(words[i]);
   }
+
+  var maxActionPercent = 0;
+  var maxActionIndex = 0;
+  for (var i = 0; i < data.length; i++) {
+    var maxEntryPercent = 0;
+    for (var j = 0; j < data[i].keywords.length; j++) {
+      var percent = wordsFound(words, data[i].keywords[j]);
+      if (percent > maxEntryPercent) {
+        maxEntryPercent = percent;
+      }
+    }
+    if (maxEntryPercent > maxActionPercent) {
+      maxActionPercent = maxEntryPercent;
+      maxActionIndex = i;
+    }
+  }
+
+
   console.log(words);
+  console.log(`Action ${data[maxActionIndex].action} , percent ${maxActionPercent}`);
 };
 
 
 var message = {
   input: undefined,
   output: undefined,
-  text: "je veux faire un test"
+  text: "autre"
 };
 
 
