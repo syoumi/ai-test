@@ -1,0 +1,7 @@
+const MIN_PERCENT = 60;
+const MIN_SIMILARITY_PERCENT = 50;
+
+module.exports = {
+  MIN_PERCENT,
+  MIN_SIMILARITY_PERCENT
+};

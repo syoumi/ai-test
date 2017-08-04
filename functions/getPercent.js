@@ -1,4 +1,4 @@
-
+const {checkEquality} = require('./checkEquality');
 
 var getPercent= (words, keywords)=> {
 
@@ -6,7 +6,7 @@ var getPercent= (words, keywords)=> {
 
   words.forEach((word) => {
     keywords.forEach((keyword) => {
-      if (word === keyword) {
+      if (checkEquality(word, keyword)) {
         counter++;
         console.log(`found ${word}`);
       }

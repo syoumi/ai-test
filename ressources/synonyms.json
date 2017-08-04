@@ -1,0 +1,46 @@
+{
+  "lang": "fr",
+  "data": [
+    {
+      "name": "appartement",
+      "synonyms": [
+        "appartement",
+        "appart"
+      ]
+    },
+    {
+      "name": "studio",
+      "synonyms": [
+        "studio",
+        "garçonnière"
+      ]
+    },
+    {
+      "name": "vendre",
+      "synonyms": [
+        "vendre",
+        "vente"
+      ]
+    },
+    {
+      "name": "location",
+      "synonyms": [
+        "location",
+        "louer"
+      ]
+    },
+    {
+      "name": "logement",
+      "synonyms": [
+        "logement",
+        "loyer",
+        "loge",
+        "habitation",
+        "logis",
+        "résidence",
+        "domicile",
+        "foyer"
+      ]
+    }
+  ]
+}
