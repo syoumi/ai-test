@@ -7,6 +7,11 @@ const fs = require('fs');
 
 const {removePunctuation} = require('./functions/removePunctuation');
 const {wordsFound} = require('./functions/wordsFound');
+const {getDistinct} = require('./functions/getDistinct');
+const {getPercent} = require('./functions/getPercent');
+
+const MIN_PERCENT = 90;
+
 
 var jsonData = fs.readFileSync('./ressources/data.json');
 var ignorable = fs.readFileSync('./ressources/ignorable.json');
@@ -30,7 +35,7 @@ var answer = {
 
 // handling input, returning action + possible answers
 var handleMessage = (message) => {
-  var text = message.text;
+  var text = message.text.toLowerCase();
   if (text) {
     var entry = findExactMatch(text);
     if (entry) {
@@ -41,7 +46,7 @@ var handleMessage = (message) => {
         answer: entry.answers[index]
       };
     } else {
-      var entry = findMatch(text, 10);
+      var entry = findMatch(text, MIN_PERCENT);
       if (entry) {
         // generating random index
         var index = parseInt(Math.random() * entry.answers.length);
@@ -73,10 +78,14 @@ var findExactMatch = (text) => {
 };
 
 var findMatch = (text, minPercent) => {
-  var words = text.split(/[ ,;.]+/);
-  for (var i = 0; i < words.length; i++) {
-    words[i] = removePunctuation(words[i]);
+  var wordsTab = text.split(/[ ,;.]+/);
+
+  for (var i = 0; i < wordsTab.length; i++) {
+    wordsTab[i] = removePunctuation(wordsTab[i]);
   }
+  var words = wordsTab.filter((element) => {
+    return element != '';
+  });
 
   var maxActionPercent = 0;
   var maxActionIndex = 0;
@@ -104,7 +113,23 @@ var findMatch = (text, minPercent) => {
   }
   else {
     // TODO use next method
-    return undefined;
+    // var distincts = getDistinct(data[0].keywords);
+    // console.log(distincts);
+    // console.log(getPercent(words, distincts));
+
+    var maxPercent = 0;
+    var maxIndex = 0;
+    for (var i = 0; i < data.length; i++) {
+      var distincts = getDistinct(data[i].keywords);
+      var percent = getPercent(words, distincts);
+      console.log('Percent found ' , percent);
+      if (percent > maxPercent) {
+        maxPercent = percent;
+        maxIndex = i;
+      }
+    }
+    console.log(`Percent ${maxPercent}, action ${data[maxIndex].action}`);
+    return data[maxIndex];
   }
 };
 
@@ -112,10 +137,8 @@ var findMatch = (text, minPercent) => {
 var message = {
   input: undefined,
   output: undefined,
-  text: "Je veux vraiment un autre test"
+  text: "Vendre et louer appartement"
 };
 
-
-
-var answer = handleMessage(message).answer;
+var answer = handleMessage(message);
 console.log((answer) ? answer : "J'ai pas compris ce que vous voulez dire");
