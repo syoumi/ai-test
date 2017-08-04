@@ -41,7 +41,17 @@ var handleMessage = (message) => {
         answer: entry.answers[index]
       };
     } else {
-      return findMatch(text, 0);
+      var entry = findMatch(text, 10);
+      if (entry) {
+        // generating random index
+        var index = parseInt(Math.random() * entry.answers.length);
+        return {
+          action: entry.action,
+          answer: entry.answers[index]
+        };
+      } else {
+        return undefined;
+      }
     }
   } else {
     console.log('no text');
@@ -86,12 +96,21 @@ var findMatch = (text, minPercent) => {
 
   console.log(words);
   console.log(`Action ${data[maxActionIndex].action} , percent ${maxActionPercent}`);
+
+  if (maxActionPercent >= minPercent) {
+    console.log('Thats it');
+    return data[maxActionIndex];
+  }
+  else {
+    // TODO use next method
+    return undefined;
+  }
 };
 
 var message = {
   input: undefined,
   output: undefined,
-  text: "autre"
+  text: "Je veux vraiment un autre test"
 };
 
 var answer = handleMessage(message);
