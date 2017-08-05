@@ -2,33 +2,38 @@
   "lang": "fr",
   "data": [
     {
-      "name": "appartement",
+      "name": "hello",
       "synonyms": [
-        "appartement",
-        "appart"
+        "hello",
+        "hi",
+        "hey"
       ]
     },
+
     {
-      "name": "studio",
+      "name": "salam",
       "synonyms": [
-        "studio",
-        "garçonnière"
+        "salam",
+        "slm",
+        "salamo alaykom",
+        "assalamu alaykum"
       ]
     },
+
     {
-      "name": "vendre",
+      "name": "beaucoup",
       "synonyms": [
-        "vendre",
-        "vente"
+        "beaucoup",
+        "bcp",
+        "énormément",
+        "infiniment",
+        "vachement",
+        "tellement",
+        "trop",
+        "très"
       ]
     },
-    {
-      "name": "location",
-      "synonyms": [
-        "location",
-        "louer"
-      ]
-    },
+
     {
       "name": "logement",
       "synonyms": [
@@ -41,6 +46,66 @@
         "domicile",
         "foyer"
       ]
-    }
+    },
+
+
+    {
+      "name": "appartement",
+      "synonyms": [
+        "appartement",
+        "appart"
+      ]
+    },
+
+    {
+      "name": "studio",
+      "synonyms": [
+        "studio",
+        "garçonnière"
+      ]
+    },
+
+    {
+      "name": "maison",
+      "synonyms": [
+        "maison",
+        "demeure"
+      ]
+    },
+
+    {
+      "name": "location",
+      "synonyms": [
+        "location",
+        "louer"
+      ]
+    },
+
+    {
+      "name": "achat",
+      "synonyms": [
+        "achat",
+        "acheter"
+      ]
+    },
+
+    {
+      "name": "vente",
+      "synonyms": [
+        "vente",
+        "vendre"
+      ]
+    },
+
+    {
+      "name": "solde",
+      "synonyms": [
+        "solde",
+        "offre",
+        "remise"
+      ]
+    },
+
+
   ]
 }
