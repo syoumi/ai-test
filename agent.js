@@ -138,7 +138,7 @@ var findMatch = (text, minPercent) => {
 var message = {
   input: undefined,
   output: undefined,
-  text: "garçonnière loure"
+  text: "Bonjour :) "
 };
 
 var answer = handleMessage(message);
