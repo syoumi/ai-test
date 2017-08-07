@@ -127,7 +127,11 @@ var findMatch = (text, minPercent) => {
       }
     }
     console.log(`Percent ${maxPercent}, action ${data[maxIndex].action}`);
-    return data[maxIndex];
+    if(maxPercent >= minPercent)
+      return data[maxIndex];
+    else {
+      return undefined;
+    }
   }
 };
 
