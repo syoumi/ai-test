@@ -139,8 +139,16 @@ var findMatch = (text, minPercent) => {
 var message = {
   input: undefined,
   output: undefined,
-  text: "hughr sfhuhg hfezuhg"
+  text: "Bonjour "
 };
 
 var answer = handleMessage(message);
 console.log((answer) ? answer : "J'ai pas compris ce que vous voulez dire");
+
+fs.readFile('./resources/unsaved.json', 'utf8', function readFileCallback(err){
+    if (err){
+        console.log(err);
+    } else {
+
+    fs.writeFile('./resources/unsaved.json', unsaved + JSON.stringify(message) , 'utf8'); // write it back 
+}});
