@@ -24,6 +24,7 @@
       "keywords": [
         "ça va",
         "comment ça va",
+        "cv",
         "comment allez vous",
         "es ce que vous allez bien"
       ],
@@ -485,6 +486,65 @@
         "Salut, à plus !"
       ]
     },
+
+    {
+      "action": "busy-action",
+      "keywords": [
+        "je suis occupé",
+        "j ai trop à faire maintenant",
+        "j ai beaucoup de choses à faire",
+        "pas assez de temps",
+        "je n ai le temps",
+        "pas envie de parler"
+      ],
+      "answers": [
+        "Très bien. Je vous laisse retourner à vos occupations. Dites-le-moi si je peux faire quelque chose pour vous.",
+        "Je comprends, je vous laisse tranquille. Mais je reste là au cas où.",
+        "D'accord. Je ne suis pas loin si vous avez besoin de moi."
+      ]
+    },
+
+    {
+      "action": "excited-action",
+      "keywords": [
+        "je suis enthousiasmé pour ça",
+        "je suis impatient",
+        "j ai hâte"
+      ],
+      "answers": [
+        "Super !"
+      ]
+    },
+
+    {
+      "action": "user-birthday-action",
+      "keywords": [
+        "c est mon anniversaire",
+        "aujourd hui c est mon anniv",
+        "je fête mon anniversaire aujourd hui"
+      ],
+      "answers": [
+        "Je vous souhaite un joyeux anniversaire et plein de beaux cadeaux !",
+        "Bon anniversaire ! Et plein de belles choses pour cette nouvelle année !"
+      ]
+    },
+
+    {
+      "action": "joking-action",
+      "keywords": [
+        "je rigole",
+        "je déconne",
+        "je plaisente",
+        "je blague",
+        "c était une blague",
+        "c était une plaisanterie"
+      ],
+      "answers": [
+        "C'est toujours plus sympa de parler avec quelqu'un qui a le sens de l'humour."
+      ]
+    },
+
+
 
 
     {

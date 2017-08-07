@@ -14,8 +14,9 @@ const {MIN_PERCENT} = require('./include/config');
 
 
 
-var jsonData = fs.readFileSync('./ressources/data.json');
-var ignorable = fs.readFileSync('./ressources/ignorable.json');
+var jsonData = fs.readFileSync('./resources/data.json');
+var ignorable = fs.readFileSync('./resources/ignorable.json');
+var unsaved = fs.readFileSync('./resources/unsaved.json');
 
 var data = JSON.parse(jsonData).data;
 
@@ -138,7 +139,7 @@ var findMatch = (text, minPercent) => {
 var message = {
   input: undefined,
   output: undefined,
-  text: "Bonjour :) "
+  text: "hughr sfhuhg hfezuhg"
 };
 
 var answer = handleMessage(message);
