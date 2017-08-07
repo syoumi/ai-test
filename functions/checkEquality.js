@@ -9,12 +9,18 @@ var checkEquality = (s1, s2) => {
   s1 = s1.toLowerCase();
   s2 = s2.toLowerCase();
   var areEquals = false;
+
+  //check if both strings are equals
   if (s1 === s2) {
     areEquals = true;
+
   } else {
+    //check if both strings are synonyms
     if (areSynonyms(s1, s2)) {
       areEquals = true;
-    } else {
+    }
+    //check if both strings are similar
+    else {
       var similarityPercent = similarity(s1, s2) * 100;
       areEquals = (similarityPercent >= MIN_SIMILARITY_PERCENT);
     }
