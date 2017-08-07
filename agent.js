@@ -10,12 +10,14 @@ const {wordsFound} = require('./functions/wordsFound');
 const {getDistinct} = require('./functions/getDistinct');
 const {getPercent} = require('./functions/getPercent');
 const {checkEquality} = require('./functions/checkEquality');
+const {getAnswer} = require('./functions/getAnswer');
+
 const {MIN_PERCENT} = require('./include/config');
 
 
-
-var jsonData = fs.readFileSync('./ressources/data.json');
-var ignorable = fs.readFileSync('./ressources/ignorable.json');
+var jsonData = fs.readFileSync('./resources/data.json');
+var ignorable = fs.readFileSync('./resources/ignorable.json');
+var unsaved = fs.readFileSync('./resources/unsaved.json');
 
 var data = JSON.parse(jsonData).data;
 
@@ -39,22 +41,17 @@ var handleMessage = (message) => {
   var text = message.text.toLowerCase();
   if (text) {
     var entry = findExactMatch(text);
+
     if (entry) {
-      // generating random index
-      var index = parseInt(Math.random() * entry.answers.length);
-      return {
-        action: entry.action,
-        answer: entry.answers[index]
-      };
+      // generating random answer
+      return getAnswer(entry);
+
     } else {
       var entry = findMatch(text, MIN_PERCENT);
       if (entry) {
-        // generating random index
-        var index = parseInt(Math.random() * entry.answers.length);
-        return {
-          action: entry.action,
-          answer: entry.answers[index]
-        };
+        // generating random answer
+        return getAnswer(entry);
+
       } else {
         return undefined;
       }
@@ -138,8 +135,17 @@ var findMatch = (text, minPercent) => {
 var message = {
   input: undefined,
   output: undefined,
-  text: "Bonjour :) "
+  text: "Bonjour. ça va?"
 };
 
 var answer = handleMessage(message);
-console.log((answer) ? answer : "J'ai pas compris ce que vous voulez dire");
+console.log((answer) ? answer : "J'ai pas compris ce que vous voulez dire.");
+
+if(!answer) {
+  fs.readFile('./resources/unsaved.json', 'utf8', function readFileCallback(err){
+      if (err)
+          console.log(err);
+      else
+        fs.writeFile('./resources/unsaved.json', unsaved + JSON.stringify(message) , 'utf8');
+  });
+}

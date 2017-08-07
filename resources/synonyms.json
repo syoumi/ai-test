@@ -1,0 +1,201 @@
+{
+  "lang": "fr",
+  "data": [
+    {
+      "name": "hello",
+      "synonyms": [
+        "hello",
+        "hi",
+        "hey"
+      ]
+    },
+
+    {
+      "name": "salam",
+      "synonyms": [
+        "salam",
+        "slm",
+        "salamo alaykom",
+        "assalamu alaykum"
+      ]
+    },
+
+    {
+      "name": "beaucoup",
+      "synonyms": [
+        "beaucoup",
+        "bcp",
+        "énormément",
+        "infiniment",
+        "vachement",
+        "tellement",
+        "trop",
+        "très"
+      ]
+    },
+
+    {
+      "name": "logement",
+      "synonyms": [
+        "logement",
+        "loyer",
+        "loge",
+        "habitation",
+        "logis",
+        "résidence",
+        "domicile",
+        "foyer",
+        "propriété"
+      ]
+    },
+
+
+    {
+      "name": "appartement",
+      "synonyms": [
+        "appartement",
+        "appart"
+      ]
+    },
+
+    {
+      "name": "studio",
+      "synonyms": [
+        "studio",
+        "garçonnière"
+      ]
+    },
+
+    {
+      "name": "maison",
+      "synonyms": [
+        "maison",
+        "demeure"
+      ]
+    },
+
+    {
+      "name": "location",
+      "synonyms": [
+        "location",
+        "louer"
+      ]
+    },
+
+    {
+      "name": "achat",
+      "synonyms": [
+        "achat",
+        "acheter"
+      ]
+    },
+
+    {
+      "name": "vente",
+      "synonyms": [
+        "vente",
+        "vendre"
+      ]
+    },
+
+    {
+      "name": "solde",
+      "synonyms": [
+        "solde",
+        "remise"
+      ]
+    },
+
+    {
+      "name": "responsable",
+      "synonyms": [
+        "responsable",
+        "contact",
+        "propriétaire",
+        "administrateur",
+        "agent",
+        "représentant"
+      ]
+    },
+
+    {
+        "name": "bien vide",
+        "synonyms": [
+          "bien vide",
+          "non meublé",
+          "sans meubles"
+        ]
+    },
+
+    {
+        "name": "bien meublé",
+        "synonyms": [
+          "bien meublé",
+          "meublé",
+          "avec meubles"
+        ]
+    },
+
+    {
+        "name": "produit",
+        "synonyms": [
+          "produit",
+          "bien",
+          "proposition",
+          "service",
+          "option",
+          "projet",
+          "offre"
+        ]
+    },
+
+    {
+        "name": "paiement",
+        "synonyms": [
+          "paiement",
+          "payer"
+        ]
+    },
+
+    {
+        "name": "chambre",
+        "synonyms": [
+          "chambre",
+          "pièce",
+          "salle",
+          "chambrette"
+        ]
+    },
+
+    {
+        "name": "toilette",
+        "synonyms": [
+          "toilette",
+          "salle de bain",
+          "wc",
+          "douche"
+        ]
+    },
+
+    {
+        "name": "garage",
+        "synonyms": [
+          "garage",
+          "dépôt",
+          "parking",
+          "stationnement"
+        ]
+    },
+
+    {
+        "name": "nouveauté",
+        "synonyms": [
+          "nouveauté",
+          "nouveau",
+          "neuf"
+        ]
+    }
+
+
+  ]
+}
