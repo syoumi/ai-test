@@ -6,15 +6,12 @@ const {removeUser} = require('./handleUser');
 
 //Get the actual context of user
 var getContext = (senderID) => {
-  console.log('get context');
-
   var context= undefined;
 
   if(userExists(senderID)){
     var user = getUser(senderID);
     if(user){
       context= user.context;
-      console.log("Paramètres: ", user.parameters);
     }
   }
 
@@ -24,8 +21,7 @@ var getContext = (senderID) => {
 
 //Set the actual context of user
 var setContext = (senderID, context, params) => {
-  console.log('set context');
-
+  
   //if user already exists, update context and parameters
   if(userExists(senderID)){
     var user= getUser(senderID);
@@ -51,8 +47,18 @@ var cleanContext = (senderID) => {
   removeUser(senderID);
 }
 
+//Get all user's parameters
+var getParameters = (senderID) => {
+  var params= [];
+  if(userExists(senderID)){
+    var user = getUser(senderID);
+    params = user.parameters;
+  }
+  return params;
+}
+
 
 
 module.exports= {
-  getContext, setContext, cleanContext
+  getContext, setContext, cleanContext, getParameters
 }
