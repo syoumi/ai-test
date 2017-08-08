@@ -3,6 +3,7 @@ const fs = require('fs');
 
 const {findMatch} = require('./findMatch');
 const {findExactMatch} = require('./findExactMatch');
+const {findMatchContext} = require('./findMatchContext');
 const {getAnswer} = require('./getAnswer');
 
 var jsonData = fs.readFileSync('./resources/data.json');
@@ -38,6 +39,19 @@ var handleMessage = (message) => {
   }
 };
 
+
+//Check if there's an answer for message in the context
+var handleContextMessage = (message, context) => {
+  var text = message.text.toLowerCase();
+  if (text) {
+    var entry = findMatchContext(text, context);
+    if(entry)
+      return getAnswer(entry);
+  }
+  return undefined;
+};
+
+
 module.exports = {
-  handleMessage
+  handleMessage, handleContextMessage
 };

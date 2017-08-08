@@ -21,8 +21,7 @@ var getContext = (senderID) => {
 
 //Set the actual context of user
 var setContext = (senderID, context, params) => {
-  console.log('set context');
-
+  
   //if user already exists, update context and parameters
   if(userExists(senderID)){
     var user= getUser(senderID);
