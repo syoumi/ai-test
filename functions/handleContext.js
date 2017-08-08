@@ -1,84 +1,64 @@
-const fs = require('fs');
 
-var register=  fs.readFileSync('./register/actualContext.json');
-
-var users= JSON.parse(register);
-
-//Find out the index of user, if it exists
-var getIndexUser = (senderID) => {
-  var index= -1;
-  for (var i= 0; i< users.length; i++) {
-   var user= users[i];
-   if(user.senderID === senderID){
-    // console.log(`USER: ${user.senderID}`);
-    // console.log(`Context: ${user.context.output}`);
-    index=i;
-    break;
-   }
-  }
-  return index;
-}
-
+const {userExists} = require('./handleUser');
+const {getUser} = require('./handleUser');
+const {setUser} = require('./handleUser');
+const {removeUser} = require('./handleUser');
 
 //Get the actual context of user
 var getContext = (senderID) => {
-  var index= getIndexUser(senderID);
   var context= undefined;
-  if(index != -1){
-    context= users[index].context;
+
+  if(userExists(senderID)){
+    var user = getUser(senderID);
+    if(user){
+      context= user.context;
+    }
   }
+
   return context;
 }
 
+
 //Set the actual context of user
 var setContext = (senderID, context, params) => {
-  var index= getIndexUser(senderID);
-
-  //if user already exists, update context
-  if(index != -1){
-
-    users[index].context.input =  users[index].context.output;
-    users[index].context.output = context.output;
-    users[index].parameters.push(params);
-
-    fs.writeFile('./register/actualContext.json', JSON.stringify(users), function (err) {
-      if (err) return console.log('error ' + err);
-    });
+  
+  //if user already exists, update context and parameters
+  if(userExists(senderID)){
+    var user= getUser(senderID);
+    user.context.input= user.context.output;
+    user.context.output= context.output;
+    if(params !='')
+      user.parameters.push(params);
+    setUser(senderID, user.context, user.parameters);
   }
 
   //if user doesn't exists, add new user
   else{
+    var parameters=[];
+    if(params !='')
+      parameters.push(params);
 
-    var user = {
-      "senderID" : senderID,
-      "context": context,
-      "parameters": [params]
-    }
-
-    users.push(user);
-
-    fs.writeFile('./register/actualContext.json', JSON.stringify(users), function (err) {
-      if (err) return console.log('error ' + err);
-    });
-
+    setUser(senderID, context, parameters);
   }
-
 }
 
 //Delete user when he's out of context
 var cleanContext = (senderID) => {
-    var index= getIndexUser(senderID);
-    if(index!=-1){
-      users.splice(index, 1);
+  removeUser(senderID);
+}
 
-      fs.writeFile('./register/actualContext.json', JSON.stringify(users), function (err) {
-        if (err) return console.log('error ' + err);
-      });
-    }
+//Get all user's parameters
+var getParameters = (senderID) => {
+  var params= [];
+  if(userExists(senderID)){
+    var user = getUser(senderID);
+    params = user.parameters;
+  }
+  return params;
 }
 
 
 
 module.exports= {
-  getContext, setContext, cleanContext
+  getContext, setContext, cleanContext, getParameters
 }
