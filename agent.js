@@ -23,7 +23,7 @@ var receiveMessage = (request) => {
 
   if(context){
       console.log('HandleContextMessage');
-      
+
       //Looking for an answer with answer.context.id
       answer = handleContextMessage(request, context);
   }
@@ -85,7 +85,7 @@ var answer = {
 
 // message example
 var message = {
-  senderID: 7851846,
+senderID: 7851846,
   text: "catalogue"
 };
 
