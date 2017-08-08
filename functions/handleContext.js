@@ -21,21 +21,21 @@ var getContext = (senderID) => {
 
 //Set the actual context of user
 var setContext = (senderID, context, params) => {
-  
+
   //if user already exists, update context and parameters
   if(userExists(senderID)){
-    var user= getUser(senderID);
-    user.context.input= user.context.output;
-    user.context.output= context.output;
-    if(params !='')
+    var user = getUser(senderID);
+    user.context.input = user.context.output;
+    user.context.output = context.output;
+    if (params != '')
       user.parameters.push(params);
     setUser(senderID, user.context, user.parameters);
   }
 
   //if user doesn't exists, add new user
-  else{
-    var parameters=[];
-    if(params !='')
+  else {
+    var parameters = [];
+    if (params !='')
       parameters.push(params);
 
     setUser(senderID, context, parameters);

@@ -36,7 +36,7 @@ var findExactMatch = (text) => {
         }
         if (areEquals) {
           foundEntry = entry;
-          console.log(`STEP ONE RESULT : action ${entry.action}`);
+          // console.log(`STEP ONE RESULT : action ${entry.action}`);
         }
       }
     });
