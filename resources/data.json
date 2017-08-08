@@ -1022,7 +1022,6 @@
           "name": "?"
         }
     },
-
     {
       "action": "refuse-fourchette-action",
       "keywords": [
@@ -1042,7 +1041,6 @@
           "name": ""
         }
     },
-
     {
       "action": "accepte-nbr-chambres-action",
       "keywords": [
@@ -1065,9 +1063,6 @@
           "name": ""
         }
     },
-
-
-
     {
       "action": "prix-action",
       "keywords": [
@@ -1087,8 +1082,23 @@
         "parameters":{
           "name": ""
         }
-
+    },
+    {
+      "action": "unknown-action",
+      "keywords": [],
+      "answers": [
+        "Je pense que je n'arrive pas à saisir votre demande, pouvez vous être plus spécifique ?",
+        "J'ai du mal à comprendre votre message, pouvez vous le clarifier ?",
+        "Je crois que je ne vous suit plus, pouvez vous me clarifier votre message ?",
+        "Votre message me parait difficile à comprendre, expliquez vous !"
+      ],
+      "context":
+        {
+          "id": 3889,
+          "input": "",
+          "output": ""
+        },
+        "parameters": []
     }
-
   ]
 }
