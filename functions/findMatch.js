@@ -57,6 +57,7 @@ var findMatch = (text) => {
       if (percent > maxPercent) {
         maxPercent = percent;
         maxIndex = i;
+        //i++;
       }
     }
     console.log(`STEP THREE RESULT : Percent ${maxPercent}, action ${data[maxIndex].action}`);
