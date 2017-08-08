@@ -11,13 +11,18 @@ const {getDistinct} = require('./functions/getDistinct');
 const {getPercent} = require('./functions/getPercent');
 const {checkEquality} = require('./functions/checkEquality');
 const {getAnswer} = require('./functions/getAnswer');
+const {getContext} = require('./functions/handleContext');
+const {setContext} = require('./functions/handleContext');
+const {cleanContext} = require('./functions/handleContext');
+const {saveUndefinedAnswer} = require('./functions/saveUndefinedAnswer');
 
 const {MIN_PERCENT} = require('./include/config');
 
 
 var jsonData = fs.readFileSync('./resources/data.json');
 var ignorable = fs.readFileSync('./resources/ignorable.json');
-var unsaved = fs.readFileSync('./resources/unsaved.json');
+
+
 
 var data = JSON.parse(jsonData).data;
 
@@ -25,15 +30,20 @@ var data = JSON.parse(jsonData).data;
 
 // message example
 var message = {
-  input: undefined,
-  output: undefined,
+  senderID: 78518466,
   text: 'Test'
 };
 
 // answer example
 var answer = {
   action: 'actionName',
-  answer: 'one answer'
+  answer: 'one answer',
+  context: {
+    "id": -1,
+    "input": '',
+    "output": ''
+  },
+  parameters:''
 };
 
 // handling input, returning action + possible answers
@@ -44,6 +54,7 @@ var handleMessage = (message) => {
 
     if (entry) {
       // generating random answer
+      console.log(entry.context);
       return getAnswer(entry);
 
     } else {
@@ -64,7 +75,7 @@ var handleMessage = (message) => {
 
 var findExactMatch = (text) => {
   text = text.toLowerCase().trim();
-  foundEntry = undefined;
+  var foundEntry = undefined;
   data.forEach((entry) => {
     entry.keywords.forEach((keyword) => {
       if (checkEquality(text, keyword)) {
@@ -127,6 +138,7 @@ var findMatch = (text, minPercent) => {
       }
     }
     console.log(`Percent ${maxPercent}, action ${data[maxIndex].action}`);
+
     if(maxPercent >= minPercent)
       return data[maxIndex];
     else {
@@ -137,19 +149,45 @@ var findMatch = (text, minPercent) => {
 
 
 var message = {
-  input: undefined,
-  output: undefined,
-  text: "Bonjour. ça va?"
+  senderID: 7851846,
+  text: "appartement"
 };
 
 var answer = handleMessage(message);
-console.log((answer) ? answer : "J'ai pas compris ce que vous voulez dire.");
+//console.log((answer) ? answer : "Je n'ai pas compris ce que vous voulez dire.");
 
 if(!answer) {
-  fs.readFile('./resources/unsaved.json', 'utf8', function readFileCallback(err){
-      if (err)
-          console.log(err);
-      else
-        fs.writeFile('./resources/unsaved.json', unsaved + JSON.stringify(message) , 'utf8');
-  });
+  saveUndefinedAnswer(message.text);
+}
+else{
+  console.log(`Answer: ${answer.answer}`);
+  var context= getContext(message.senderID);
+
+  //Check if there's a context for that user
+  if(context){
+    if(context.output == answer.context.input){
+      console.log(`Context: ${context.output}`);
+
+      //TODO add something
+      //verify if it's the right answer ?
+
+      //For test
+      //var answeer = getAnswer(data[context.id]);
+      // FindMatch with data[context.id]
+
+    }
+    if(!answer.context.output)
+      cleanContext(message.senderID);
+
+  }
+
+  //if answer got an output
+  if(answer.context.output){
+    var params=undefined;
+    if(answer.parameters!=''){
+      params= message.text;
+    }
+    setContext(message.senderID, answer.context, params);
+  }
+
 }
