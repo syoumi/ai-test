@@ -6,18 +6,12 @@
 const {getContext} = require('./functions/handleContext');
 const {setContext} = require('./functions/handleContext');
 const {cleanContext} = require('./functions/handleContext');
+const {getParameters} = require('./functions/handleContext');
 const {saveUndefinedAnswer} = require('./functions/saveUndefinedAnswer');
 const {handleMessage} = require('./functions/handleMessage');
 
 const {MIN_PERCENT} = require('./include/config');
 
-// answer example
-var answer = {
-  recipientID: 123456,
-  action: 'actionName',
-  answer: 'one answer',
-  parameters: []
-};
 
 var receiveMessage = (request) => {
   console.log(`Received message from ${request.senderID}, content ${request.text}`);
@@ -33,11 +27,11 @@ var receiveMessage = (request) => {
     if(context){
       if(context.output == answer.context.input){
         console.log(`Context output: ${context.output}`);
-
         //TODO add something
-        //verify if it's the right answer ?
+
       }
       else {
+        //if user's out of context
         cleanContext(message.senderID);
       }
     }
@@ -49,6 +43,9 @@ var receiveMessage = (request) => {
       }
       setContext(message.senderID, answer.context, params);
     }
+
+    //Update answer's parameters
+    answer.parameters = getParameters(message.senderID);
   }
 
   var response = sendAnswer(request.senderID, answer);
