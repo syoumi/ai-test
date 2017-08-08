@@ -944,7 +944,6 @@
         },
         "parameters":["?"]
     },
-
     {
       "action": "refuse-fourchette-action",
       "keywords": [
@@ -962,7 +961,6 @@
         },
         "parameters":[]
     },
-
     {
       "action": "accepte-nbr-chambres-action",
       "keywords": [
@@ -983,9 +981,6 @@
         },
         "parameters":[]
     },
-
-
-
     {
       "action": "prix-action",
       "keywords": [
@@ -1002,9 +997,31 @@
           "input": "",
           "output": ""
         },
+<<<<<<< HEAD
         "parameters":[]
 
+=======
+        "parameters":{
+          "name": ""
+        }
+    },
+    {
+      "action": "unknown-action",
+      "keywords": [],
+      "answers": [
+        "Je pense que je n'arrive pas à saisir votre demande, pouvez vous être plus spécifique ?",
+        "J'ai du mal à comprendre votre message, pouvez vous le clarifier ?",
+        "Je crois que je ne vous suit plus, pouvez vous me clarifier votre message ?",
+        "Votre message me parait difficile à comprendre, expliquez vous !"
+      ],
+      "context":
+        {
+          "id": 3889,
+          "input": "",
+          "output": ""
+        },
+        "parameters": []
+>>>>>>> 0b245de93d39c026ea3b26a6affd2b9dbed33100
     }
-
   ]
 }

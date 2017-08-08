@@ -34,22 +34,55 @@ var setContext = (senderID, context, params) => {
     if(params !='')
       user.parameters.push(params);
 
+<<<<<<< HEAD
     setUser(senderID, user.context, user.parameters);
+=======
+    fs.writeFile('./register/actualContext.json', JSON.stringify(users), function (err) {
+      if (err) return console.log('error ' + err);
+    });
+>>>>>>> 0b245de93d39c026ea3b26a6affd2b9dbed33100
   }
 
   //if user doesn't exists, add new user
   else{
+<<<<<<< HEAD
     var parameters=[];
     if(params !='')
       parameters.push(params);
     setUser(senderID, context, parameters);
+=======
+
+    var user = {
+      "senderID" : senderID,
+      "context": context,
+      "parameters": [params]
+    }
+
+    users.push(user);
+
+    fs.writeFile('./register/actualContext.json', JSON.stringify(users), function (err) {
+      if (err) return console.log('error ' + err);
+    });
+
+>>>>>>> 0b245de93d39c026ea3b26a6affd2b9dbed33100
   }
 
 }
 
 //Delete user when he's out of context
 var cleanContext = (senderID) => {
+<<<<<<< HEAD
   removeUser(senderID);
+=======
+    var index= getIndexUser(senderID);
+    if(index!=-1){
+      users.splice(index, 1);
+
+      fs.writeFile('./register/actualContext.json', JSON.stringify(users), function (err) {
+        if (err) return console.log('error ' + err);
+      });
+    }
+>>>>>>> 0b245de93d39c026ea3b26a6affd2b9dbed33100
 }
 
 
