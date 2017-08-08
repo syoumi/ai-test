@@ -1,7 +1,7 @@
 var getAnswer = (entry) => {
   // generating random index
   var index = parseInt(Math.random() * entry.answers.length);
-  console.log('Parameters ' + entry.parameters.name);
+
   return {
     action: entry.action,
     context:
@@ -10,7 +10,7 @@ var getAnswer = (entry) => {
         "input": entry.context.input,
         "output": entry.context.output
       },
-    parameters: entry.parameters.name,
+    parameters: entry.parameters[0],
     answer: entry.answers[index]
   };
 }

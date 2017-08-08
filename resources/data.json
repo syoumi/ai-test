@@ -23,9 +23,7 @@
           "input": "",
           "output": "salutations-action"
         },
-        "parameters":{
-          "name": ""
-        }
+        "parameters":[]
 
     },
 
@@ -48,9 +46,7 @@
           "input": "salutations-action",
           "output": "salamalec-action"
         },
-        "parameters":{
-          "name": ""
-        }
+        "parameters":[]
 
     },
 
@@ -81,9 +77,7 @@
           "input": "salamalec-action",
           "output": ""
         },
-        "parameters":{
-          "name": ""
-        }
+        "parameters":[]
 
     },
 
@@ -107,9 +101,7 @@
           "input": "",
           "output": ""
         },
-        "parameters":{
-          "name": ""
-        }
+        "parameters":[]
 
     },
 
@@ -136,9 +128,7 @@
           "input": "",
           "output": ""
         },
-        "parameters":{
-          "name": ""
-        }
+      "parameters":[]
 
     },
 
@@ -163,9 +153,7 @@
           "input": "",
           "output": ""
         },
-        "parameters":{
-          "name": ""
-        }
+      "parameters":[]
 
     },
 
@@ -193,9 +181,7 @@
           "input": "",
           "output": ""
         },
-        "parameters":{
-          "name": ""
-        }
+      "parameters":[]
 
     },
 
@@ -221,9 +207,7 @@
           "input": "",
           "output": ""
         },
-        "parameters":{
-          "name": ""
-        }
+        "parameters":[]
 
     },
 
@@ -253,9 +237,7 @@
           "input": "",
           "output": ""
         },
-        "parameters":{
-          "name": ""
-        }
+        "parameters":[]
 
     },
 
@@ -280,9 +262,7 @@
           "input": "",
           "output": ""
         },
-        "parameters":{
-          "name": ""
-        }
+        "parameters":[]
 
     },
 
@@ -307,9 +287,7 @@
           "input": "",
           "output": ""
         },
-        "parameters":{
-          "name": ""
-        }
+        "parameters":[]
 
     },
 
@@ -334,9 +312,7 @@
           "input": "",
           "output": ""
         },
-        "parameters":{
-          "name": ""
-        }
+      "parameters":[]
 
     },
 
@@ -356,9 +332,7 @@
           "input": "",
           "output": ""
         },
-        "parameters":{
-          "name": ""
-        }
+      "parameters":[]
 
     },
 
@@ -379,9 +353,7 @@
           "input": "",
           "output": ""
         },
-        "parameters":{
-          "name": ""
-        }
+      "parameters":[]
 
     },
 
@@ -405,9 +377,7 @@
           "input": "",
           "output": ""
         },
-        "parameters":{
-          "name": ""
-        }
+        "parameters":[]
 
     },
 
@@ -430,9 +400,7 @@
           "input": "",
           "output": ""
         },
-        "parameters":{
-          "name": ""
-        }
+      "parameters":[]
 
     },
 
@@ -455,9 +423,7 @@
           "input": "",
           "output": ""
         },
-        "parameters":{
-          "name": ""
-        }
+      "parameters":[]
 
     },
 
@@ -481,9 +447,7 @@
           "input": "",
           "output": ""
         },
-        "parameters":{
-          "name": ""
-        }
+      "parameters":[]
 
     },
 
@@ -515,9 +479,7 @@
           "input": "",
           "output": ""
         },
-        "parameters":{
-          "name": ""
-        }
+      "parameters":[]
 
     },
 
@@ -566,9 +528,7 @@
           "input": "",
           "output": ""
         },
-        "parameters":{
-          "name": ""
-        }
+      "parameters":[]
 
     },
 
@@ -589,9 +549,7 @@
           "input": "",
           "output": ""
         },
-        "parameters":{
-          "name": ""
-        }
+      "parameters":[]
 
     },
 
@@ -611,9 +569,7 @@
           "input": "",
           "output": ""
         },
-        "parameters":{
-          "name": ""
-        }
+      "parameters":[]
 
     },
 
@@ -637,9 +593,7 @@
           "input": "",
           "output": ""
         },
-        "parameters":{
-          "name": ""
-        }
+      "parameters":[]
 
     },
 
@@ -664,9 +618,7 @@
           "input": "",
           "output": ""
         },
-        "parameters":{
-          "name": ""
-        }
+      "parameters":[]
 
 
     },
@@ -690,9 +642,7 @@
           "input": "",
           "output": ""
         },
-        "parameters":{
-          "name": ""
-        }
+      "parameters":[]
 
     },
 
@@ -716,9 +666,7 @@
           "input": "",
           "output": ""
         },
-        "parameters":{
-          "name": ""
-        }
+      "parameters":[]
 
     },
 
@@ -738,9 +686,7 @@
           "input": "",
           "output": ""
         },
-        "parameters":{
-          "name": ""
-        }
+      "parameters":[]
 
     },
 
@@ -772,9 +718,7 @@
           "input": "",
           "output": ""
         },
-        "parameters":{
-          "name": ""
-        }
+      "parameters":[]
 
     },
 
@@ -799,9 +743,7 @@
           "input": "",
           "output": ""
         },
-        "parameters":{
-          "name": ""
-        }
+      "parameters":[]
 
     },
 
@@ -821,9 +763,7 @@
           "input": "",
           "output": ""
         },
-        "parameters":{
-          "name": ""
-        }
+      "parameters":[]
 
     },
 
@@ -844,9 +784,7 @@
           "input": "",
           "output": ""
         },
-        "parameters":{
-          "name": ""
-        }
+      "parameters":[]
 
     },
 
@@ -869,10 +807,7 @@
           "input": "",
           "output": ""
         },
-        "parameters":{
-          "name": ""
-        }
-
+        "parameters":[]
     },
 
 
@@ -895,11 +830,10 @@
           "input": "",
           "output": "catalogue-action"
         },
-      "parameters":{
-          "name": ""
-      }
+      "parameters":[]
 
     },
+
 
     {
       "action": "type-logement-action",
@@ -918,9 +852,7 @@
           "input": "catalogue-action",
           "output": "type-logement-action"
         },
-        "parameters":{
-          "name": "?"
-        }
+        "parameters":["?"]
 
     },
 
@@ -938,9 +870,7 @@
           "input": "type-logement-action",
           "output": "achat-action"
         },
-        "parameters":{
-          "name": "?"
-        }
+        "parameters":["?"]
     },
 
     {
@@ -957,9 +887,7 @@
           "input": "type-logement-action",
           "output": "location-action"
         },
-        "parameters":{
-          "name": "?"
-        }
+        "parameters":["?"]
     },
 
     {
@@ -976,9 +904,7 @@
           "input": "achat-action",
           "output": "fourchette-action"
         },
-        "parameters":{
-          "name": "?"
-        }
+        "parameters":["?"]
     },
 
     {
@@ -999,9 +925,7 @@
           "input": "type-logement-action",
           "output": "min-fourchette-action"
         },
-        "parameters":{
-          "name": "?"
-        }
+        "parameters":["?"]
     },
 
     {
@@ -1018,9 +942,7 @@
           "input": "min-fourchette-action",
           "output": "max-fourchette-action"
         },
-        "parameters":{
-          "name": "?"
-        }
+        "parameters":["?"]
     },
     {
       "action": "refuse-fourchette-action",
@@ -1037,9 +959,7 @@
           "input": "type-logement-action",
           "output": "refuse-fourchette-action"
         },
-        "parameters":{
-          "name": ""
-        }
+        "parameters":[]
     },
     {
       "action": "accepte-nbr-chambres-action",
@@ -1059,9 +979,7 @@
           "input": "",
           "output": "accepte-nbr-chambres-action"
         },
-        "parameters":{
-          "name": ""
-        }
+        "parameters":[]
     },
     {
       "action": "prix-action",
@@ -1079,18 +997,16 @@
           "input": "",
           "output": ""
         },
-        "parameters":{
-          "name": ""
-        }
+        "parameters":[]
     },
     {
       "action": "unknown-action",
       "keywords": [],
       "answers": [
-        "Je pense que je n'arrive pas à saisir votre demande, pouvez vous être plus spécifique ?",
-        "J'ai du mal à comprendre votre message, pouvez vous le clarifier ?",
-        "Je crois que je ne vous suit plus, pouvez vous me clarifier votre message ?",
-        "Votre message me parait difficile à comprendre, expliquez vous !"
+        "Je n'arrive pas à saisir ce que vous dites. Pouvez-vous être plus spécifique ?",
+        "J'ai du mal à comprendre votre message. Pouvez-vous le clarifier ?",
+        "Je crois que je ne vous suis plus. Pouvez-vous clarifier votre message ?",
+        "Votre message me paraît difficile à comprendre. Expliquez, s'il vous plaît!"
       ],
       "context":
         {
@@ -1099,6 +1015,7 @@
           "output": ""
         },
         "parameters": []
+
     }
   ]
 }
