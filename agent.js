@@ -11,6 +11,8 @@ const {saveUndefinedAnswer} = require('./functions/saveUndefinedAnswer');
 const {handleMessage} = require('./functions/handleMessage');
 const {handleContextMessage} = require('./functions/handleMessage');
 
+
+
 const {MIN_PERCENT} = require('./include/config');
 
 
@@ -36,14 +38,14 @@ var receiveMessage = (request) => {
 
       // if this is unknown message, save the message in json file
       if(answer.action === 'unknown-action') {
-        saveUndefinedAnswer(message.text);
+        saveUndefinedAnswer(request.text);
       } else {
         console.log(`Answer: ${answer.answer}`);
 
         if(context){
           if(context.output != answer.context.input){
             //if user's out of context
-            cleanContext(message.senderID);
+            cleanContext(request.senderID);
           }
         }
 
@@ -51,15 +53,16 @@ var receiveMessage = (request) => {
         if(answer.context.output){
           var params = '';
           if(answer.parameters[answer.parameters.length-1] === '?'){
-            params= message.text;
+            params= request.text;
+            console.log(`Params to push: ${params}`);
           }
-          setContext(message.senderID, answer.context, params);
+          setContext(request.senderID, answer.context, params);
         }
     }
   }
 
   //Update answer's parameters
-  answer.parameters = getParameters(message.senderID);
+  answer.parameters = getParameters(request.senderID);
 
   var response = sendAnswer(request.senderID, answer);
   return response;
@@ -91,3 +94,33 @@ senderID: 7851846,
 
 var response = receiveMessage(message);
 console.log(`Bot says: ${response.answer}`);
+
+if(response.parameters) console.log(`Parameters: ${response.parameters}`);
+
+var message = {
+  senderID: 7851846,
+  text: "appartement"
+};
+
+var response = receiveMessage(message);
+console.log(`Bot says: ${response.answer}`);
+if(response.parameters) console.log(`Parameters: ${response.parameters}`);
+
+var message = {
+  senderID: 7851846,
+  text: "acheter"
+};
+
+var response = receiveMessage(message);
+console.log(`Bot says: ${response.answer}`);
+if(response.parameters) console.log(`Parameters: ${response.parameters}`);
+
+
+var message = {
+  senderID: 7851846,
+  text: "non"
+};
+
+var response = receiveMessage(message);
+console.log(`Bot says: ${response.answer}`);
+if(response.parameters) console.log(`Parameters: ${response.parameters}`);

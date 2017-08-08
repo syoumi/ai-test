@@ -1,5 +1,7 @@
 const {checkEquality} = require('./checkEquality');
 
+const {isIgnorable} = require('./ignoreWords');
+
 
 var wordsFound = (words, text) => {
   //words is an array of words
