@@ -69,7 +69,7 @@ var answer = {
 // message example
 var message = {
   senderID: 7851846,
-  text: "abcdef"
+  text: " "
 };
 
 var response = receiveMessage(message);

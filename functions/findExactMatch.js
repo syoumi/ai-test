@@ -2,9 +2,9 @@ const fs = require('fs');
 
 const {checkEquality} = require('./checkEquality');
 const {removePunctuation} = require('./removePunctuation');
+const {isIgnorable} = require('./ignoreWords');
 
 var jsonData = fs.readFileSync('./resources/data.json');
-var ignorable = fs.readFileSync('./resources/ignorable.json');
 
 var data = JSON.parse(jsonData).data;
 
@@ -18,25 +18,27 @@ var findExactMatch = (text) => {
   }
 
   var words = wordsTab.filter((element) => {
-    return element != '';
+    return element != '' && !(isIgnorable(element));
   });
 
   var foundEntry = undefined;
   data.forEach((entry) => {
     entry.keywords.forEach((keyword) => {
-      var keywordsArray = keyword.split(' ');
-        if (keywordsArray.length === words.length) {
-          var areEquals = true;
-          for (var i = 0; i < words.length; i++) {
-            if (!checkEquality(words[i], keywordsArray[i])) {
-              areEquals = false;
-            }
-          }
-          if (areEquals) {
-            foundEntry = entry;
-            console.log(`STEP ONE RESULT : action ${entry.action}`);
+      var keywordsArray = keyword.split(' ').filter((item) => {
+        return item != '' && !(isIgnorable(item));
+      });
+      if (keywordsArray.length === words.length) {
+        var areEquals = true;
+        for (var i = 0; i < words.length; i++) {
+          if (!checkEquality(words[i], keywordsArray[i])) {
+            areEquals = false;
           }
         }
+        if (areEquals) {
+          foundEntry = entry;
+          console.log(`STEP ONE RESULT : action ${entry.action}`);
+        }
+      }
     });
   });
   return foundEntry;

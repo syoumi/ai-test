@@ -5,12 +5,12 @@ const {removePunctuation} = require('./removePunctuation');
 const {wordsFound} = require('./wordsFound');
 const {getDistinct} = require('./getDistinct');
 const {getPercent} = require('./getPercent');
+const {isIgnorable} = require('./ignoreWords');
 
 const {MIN_STEP_TWO_PERCENT} = require('./../include/config');
 const {MIN_STEP_THREE_PERCENT} = require('./../include/config');
 
 var jsonData = fs.readFileSync('./resources/data.json');
-var ignorable = fs.readFileSync('./resources/ignorable.json');
 
 var data = JSON.parse(jsonData).data;
 
@@ -21,7 +21,7 @@ var findMatch = (text) => {
     wordsTab[i] = removePunctuation(wordsTab[i]);
   }
   var words = wordsTab.filter((element) => {
-    return element != '';
+    return element != '' && !(isIgnorable(element));
   });
 
   var maxActionPercent = 0;

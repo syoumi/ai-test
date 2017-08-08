@@ -4,7 +4,9 @@ const {checkEquality} = require('./checkEquality');
 var wordsFound = (words, text) => {
   //words is an array of words
   //text is a string in where we look for words
-  var tab = text.split(' ');
+  var tab = text.split(' ').filter((item) => {
+    return item != '' && !(isIgnorable(item));
+  });
   var counter = 0;
   words.forEach((word) => {
     tab.forEach((item) => {
@@ -15,7 +17,6 @@ var wordsFound = (words, text) => {
   });
   var wordsPercent = counter * 100 / words.length ;
   var textPercent = counter * 100 / tab.length ;
-  console.log(`words percent ${wordsPercent}; text percent ${textPercent}; counter ${counter}`);
   // returning average of two percents
   return ( wordsPercent + textPercent ) / 2;
 };
