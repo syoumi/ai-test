@@ -855,7 +855,6 @@
         "parameters":["?"]
 
     },
-
     {
       "action": "achat-action",
       "keywords": [
@@ -956,7 +955,7 @@
       "context":
         {
           "id": 39,
-          "input": "type-logement-action",
+          "input": "achat-action",
           "output": "refuse-fourchette-action"
         },
         "parameters":[]

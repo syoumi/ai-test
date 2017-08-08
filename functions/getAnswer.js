@@ -4,11 +4,11 @@ var getAnswer = (entry) => {
   return {
     action: entry.action,
     context:
-      {
-        "id": entry.context.id,
-        "input": entry.context.input,
-        "output": entry.context.output
-      },
+    {
+      "id": entry.context.id,
+      "input": entry.context.input,
+      "output": entry.context.output
+    },
     parameters: entry.parameters,
     answer: entry.answers[index]
   };

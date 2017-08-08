@@ -5,6 +5,7 @@ const {removePunctuation} = require('./removePunctuation');
 const {wordsFound} = require('./wordsFound');
 const {getDistinct} = require('./getDistinct');
 const {getPercent} = require('./getPercent');
+const {isIgnorable} = require('./ignoreWords');
 
 const {MIN_STEP_TWO_PERCENT} = require('./../include/config');
 const {MIN_STEP_THREE_PERCENT} = require('./../include/config');
@@ -24,13 +25,13 @@ var findMatchContext = (text, context) => {
   }
 
   var words = wordsTab.filter((element) => {
-      return element != '';
+      return element != '' && !(isIgnorable(element));
   });
 
   //Intents where intent.context.input == context.output
   var intents= [];
   for (var i = 0; i < data.length; i++) {
-    if(data[i].context.input==context.output)
+    if(data[i].context.input == context.output)
       intents.push(data[i]);
   }
 
@@ -53,7 +54,7 @@ var findMatchContext = (text, context) => {
     }
   }
 
-  console.log(`STEP TWO RESULT : Action ${data[maxActionIndex].action} , percent ${maxActionPercent}`);
+  // console.log(`CONTEXT STEP TWO RESULT : Action ${data[maxActionIndex].action} , percent ${maxActionPercent}`);
 
   if (maxActionPercent >= MIN_STEP_TWO_PERCENT) {
     return intents[maxActionIndex];
@@ -65,7 +66,6 @@ var findMatchContext = (text, context) => {
     for (var i = 0; i < intents.length; i++) {
       var distincts = getDistinct(intents[i].keywords);
       var percent = getPercent(words, distincts);
-      console.log('Percent found ' , percent);
       if (percent > maxPercent) {
         maxPercent = percent;
         maxIndex = i;

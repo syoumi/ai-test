@@ -40,7 +40,7 @@ var findMatch = (text) => {
     }
   }
 
-  console.log(`STEP TWO RESULT : Action ${data[maxActionIndex].action} , percent ${maxActionPercent}`);
+  // console.log(`STEP TWO RESULT : Action ${data[maxActionIndex].action} , percent ${maxActionPercent}`);
 
   if (maxActionPercent >= MIN_STEP_TWO_PERCENT) {
     return data[maxActionIndex];
@@ -53,14 +53,14 @@ var findMatch = (text) => {
     for (var i = 0; i < data.length; i++) {
       var distincts = getDistinct(data[i].keywords);
       var percent = getPercent(words, distincts);
-      console.log('Percent found ' , percent);
+      // console.log('Percent found ' , percent);
       if (percent > maxPercent) {
         maxPercent = percent;
         maxIndex = i;
         //i++;
       }
     }
-    console.log(`STEP THREE RESULT : Percent ${maxPercent}, action ${data[maxIndex].action}`);
+    // console.log(`STEP THREE RESULT : Percent ${maxPercent}, action ${data[maxIndex].action}`);
 
     if(maxPercent >= MIN_STEP_THREE_PERCENT)
       return data[maxIndex];

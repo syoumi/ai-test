@@ -1,5 +1,5 @@
 
-var users= new Map();
+var users = new Map();
 
 var userExists = (senderID)=> {
   return users.has(senderID);

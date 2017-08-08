@@ -1,7 +1,3 @@
-// TODO
-// 1. add ignorable words
-// 2. add synonyms
-// 3. add similar words
 
 const {getContext} = require('./functions/handleContext');
 const {setContext} = require('./functions/handleContext');
@@ -11,21 +7,17 @@ const {saveUndefinedAnswer} = require('./functions/saveUndefinedAnswer');
 const {handleMessage} = require('./functions/handleMessage');
 const {handleContextMessage} = require('./functions/handleMessage');
 
-
-
 const {MIN_PERCENT} = require('./include/config');
-
 
 var receiveMessage = (request) => {
   console.log(`Received message from ${request.senderID}, content ${request.text}`);
-  var answer= undefined;
+  var answer = undefined;
 
   //Check if there's a context for that user
   var context = getContext(request.senderID);
 
   if(context){
       console.log('HandleContextMessage');
-
       //Looking for an answer with answer.context.id
       answer = handleContextMessage(request, context);
   }
@@ -40,7 +32,7 @@ var receiveMessage = (request) => {
       if(answer.action === 'unknown-action') {
         saveUndefinedAnswer(request.text);
       } else {
-        console.log(`Answer: ${answer.answer}`);
+        // console.log(`Answer: ${answer.answer}`);
 
         if(context){
           if(context.output != answer.context.input){
@@ -48,17 +40,17 @@ var receiveMessage = (request) => {
             cleanContext(request.senderID);
           }
         }
-
-        //if answer got an output
-        if(answer.context.output){
-          var params = '';
-          if(answer.parameters[answer.parameters.length-1] === '?'){
-            params= request.text;
-            console.log(`Params to push: ${params}`);
-          }
-          setContext(request.senderID, answer.context, params);
-        }
     }
+  }
+
+  //if answer got an output
+  if(answer.context.output){
+    var params = '';
+    if(answer.parameters[answer.parameters.length-1] === '?'){
+      params = request.text;
+      console.log(`Params to push: ${params}`);
+    }
+    setContext(request.senderID, answer.context, params);
   }
 
   //Update answer's parameters
