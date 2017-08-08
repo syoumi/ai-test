@@ -10,7 +10,7 @@ var getAnswer = (entry) => {
         "input": entry.context.input,
         "output": entry.context.output
       },
-    parameters: entry.parameters[0],
+    parameters: entry.parameters,
     answer: entry.answers[index]
   };
 }

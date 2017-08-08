@@ -11,6 +11,13 @@ const {handleMessage} = require('./functions/handleMessage');
 
 const {MIN_PERCENT} = require('./include/config');
 
+// answer example
+var answer = {
+  recipientID: 123456,
+  action: 'actionName',
+  answer: 'one answer',
+  parameters: []
+};
 
 var receiveMessage = (request) => {
   console.log(`Received message from ${request.senderID}, content ${request.text}`);
@@ -37,7 +44,7 @@ var receiveMessage = (request) => {
     //if answer got an output
     if(answer.context.output){
       var params = '';
-      if(answer.parameters === '?'){
+      if(answer.parameters[answer.paramers.length-1] === '?'){
         params= message.text;
       }
       setContext(message.senderID, answer.context, params);
