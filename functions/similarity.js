@@ -1,3 +1,4 @@
+//Nom de l'algo
 var similarity = (s1, s2) => {
   var longer = s1;
   var shorter = s2;

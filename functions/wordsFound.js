@@ -15,6 +15,7 @@ var wordsFound = (words, text) => {
   });
   var wordsPercent = counter * 100 / words.length ;
   var textPercent = counter * 100 / tab.length ;
+  console.log(`words percent ${wordsPercent}; text percent ${textPercent}; counter ${counter}`);
   // returning average of two percents
   return ( wordsPercent + textPercent ) / 2;
 };

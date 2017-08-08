@@ -16,7 +16,17 @@
       "answers": [
         "Salut à vous !",
         "Salutations !"
-      ]
+      ],
+      "context":
+        {
+          "id": 0,
+          "input": "",
+          "output": "salutations-action"
+        },
+        "parameters":{
+          "name": ""
+        }
+
     },
 
     {
@@ -31,7 +41,17 @@
       "answers": [
         "Très bien, merci et vous?",
         "Super, merci. Vous?"
-      ]
+      ],
+      "context":
+        {
+          "id": 1,
+          "input": "salutations-action",
+          "output": "salamalec-action"
+        },
+        "parameters":{
+          "name": ""
+        }
+
     },
 
     {
@@ -54,7 +74,17 @@
         "Super !",
         "C'est bon.",
         "Bien entendu."
-      ]
+      ],
+      "context":
+        {
+          "id": 2,
+          "input": "salamalec-action",
+          "output": ""
+        },
+        "parameters":{
+          "name": ""
+        }
+
     },
 
     {
@@ -70,7 +100,17 @@
         "D'accord.",
         "C'est noté.",
         "Comme vous voulez."
-      ]
+      ],
+      "context":
+        {
+          "id": 3,
+          "input": "",
+          "output": ""
+        },
+        "parameters":{
+          "name": ""
+        }
+
     },
 
     {
@@ -89,7 +129,17 @@
         "Entendu.",
         "D'accord.",
         "Très bien."
-      ]
+      ],
+      "context":
+        {
+          "id": 4,
+          "input": "",
+          "output": ""
+        },
+        "parameters":{
+          "name": ""
+        }
+
     },
 
     {
@@ -106,7 +156,17 @@
       "answers": [
         "Je n'ai pas compris votre question. Pouvez-vous la répéter ?",
         "Avec plaisir. Mais pouvez-vous répéter la question avant ?"
-      ]
+      ],
+      "context":
+        {
+          "id": 5,
+          "input": "",
+          "output": ""
+        },
+        "parameters":{
+          "name": ""
+        }
+
     },
 
     {
@@ -126,7 +186,17 @@
         "Excusez-moi. J'essaie de faire de mon mieux.",
         "Pardon, j'essaie simplement de vous rendre service.",
         "Ce n'est pas sympa de dire ça, j'essaie juste de vous aider."
-      ]
+      ],
+      "context":
+        {
+          "id": 6,
+          "input": "",
+          "output": ""
+        },
+        "parameters":{
+          "name": ""
+        }
+
     },
 
     {
@@ -144,7 +214,17 @@
         ":D",
         "Si vous le dites !",
         "Content que ça vous avez plu !"
-      ]
+      ],
+      "context":
+        {
+          "id": 7,
+          "input": "",
+          "output": ""
+        },
+        "parameters":{
+          "name": ""
+        }
+
     },
 
     {
@@ -166,7 +246,17 @@
         "Oh non, comment puis-je vous aider ?",
         "Dites-moi si je peux faire quelque chose pour améliorer ça.",
         "Mince. Ce sera mieux la prochaine fois."
-      ]
+      ],
+      "context":
+        {
+          "id": 8,
+          "input": "",
+          "output": ""
+        },
+        "parameters":{
+          "name": ""
+        }
+
     },
 
     {
@@ -183,7 +273,17 @@
         "J'ai toujours du temps pour vous. Que puis-je faire pour vous aider ?",
         "Toujours là pour vous servir.",
         "Je me tiens à votre disposition."
-      ]
+      ],
+      "context":
+        {
+          "id": 8,
+          "input": "",
+          "output": ""
+        },
+        "parameters":{
+          "name": ""
+        }
+
     },
 
     {
@@ -200,7 +300,17 @@
         "Bien entendu. C'est ma mission de vous venir en aide dès que vous avez besoin de moi. Que puis-je faire pour vous ?",
         "Évidemment. Dites-moi ce que je peux faire pour vous.",
         "Oui, que puis-vous faire pour vous aider ?"
-      ]
+      ],
+      "context":
+        {
+          "id": 9,
+          "input": "",
+          "output": ""
+        },
+        "parameters":{
+          "name": ""
+        }
+
     },
 
     {
@@ -217,7 +327,17 @@
       "answers": [
         "Hmmm. Je suis là pour rendre votre expérience interactive plus performante.",
         "Peu importe. L'essentiel, c'est que je suis là pour vous."
-      ]
+      ],
+      "context":
+        {
+          "id": 10,
+          "input": "",
+          "output": ""
+        },
+        "parameters":{
+          "name": ""
+        }
+
     },
 
     {
@@ -229,7 +349,17 @@
       ],
       "answers": [
         "L'intelligence appelle l'intelligence."
-      ]
+      ],
+      "context":
+        {
+          "id": 11,
+          "input": "",
+          "output": ""
+        },
+        "parameters":{
+          "name": ""
+        }
+
     },
 
     {
@@ -242,7 +372,17 @@
       ],
       "answers": [
         "Un grain de folie ne fait pas de mal !"
-      ]
+      ],
+      "context":
+        {
+          "id": 12,
+          "input": "",
+          "output": ""
+        },
+        "parameters":{
+          "name": ""
+        }
+
     },
 
     {
@@ -258,7 +398,17 @@
         "Merci beaucoup, ça me touche !",
         "Merci pour le compliment !",
         "Merci."
-      ]
+      ],
+      "context":
+        {
+          "id": 13,
+          "input": "",
+          "output": ""
+        },
+        "parameters":{
+          "name": ""
+        }
+
     },
 
     {
@@ -273,7 +423,17 @@
       "answers": [
         "Bien sûr. Je ne voudrais pas vous induire en erreur.",
         "D accord"
-      ]
+      ],
+      "context":
+        {
+          "id": 14,
+          "input": "",
+          "output": ""
+        },
+        "parameters":{
+          "name": ""
+        }
+
     },
 
     {
@@ -288,7 +448,17 @@
       "answers": [
         "Oui.",
         "Répétez votre question, s'il vous plaît."
-      ]
+      ],
+      "context":
+        {
+          "id": 15,
+          "input": "",
+          "output": ""
+        },
+        "parameters":{
+          "name": ""
+        }
+
     },
 
     {
@@ -304,7 +474,17 @@
         "Avec plaisir. De quoi souhaitez-vous parler ?",
         "J'ai toujours beaucoup de plaisir à parler avec vous. De quoi souhaitez-vous discuter ?",
         "Quel est le sujet que vous souhaitez aborder ?"
-      ]
+      ],
+      "context":
+        {
+          "id": 16,
+          "input": "",
+          "output": ""
+        },
+        "parameters":{
+          "name": ""
+        }
+
     },
 
     {
@@ -328,7 +508,17 @@
         "C'est un plaisir.",
         "C'est toujours un plaisir de vous rendre service.",
         "Aucun problème, je suis là pour ça."
-      ]
+      ],
+      "context":
+        {
+          "id": 17,
+          "input": "",
+          "output": ""
+        },
+        "parameters":{
+          "name": ""
+        }
+
     },
 
     {
@@ -344,7 +534,17 @@
         "Avec plaisir. De quoi souhaitez-vous parler ?",
         "J'ai toujours beaucoup de plaisir à parler avec vous. De quoi souhaitez-vous discuter ?",
         "Quel est le sujet que vous souhaitez aborder ?"
-      ]
+      ],
+      "context":
+        {
+          "id": 18,
+          "input": "",
+          "output": ""
+        },
+        "parameters":{
+          "name": ""
+        }
+
     },
 
     {
@@ -359,7 +559,17 @@
       "answers": [
         "Ça me fait plaisir d'entendre ça.",
         "Je n'ai fait que mon travail."
-      ]
+      ],
+      "context":
+        {
+          "id": 19,
+          "input": "",
+          "output": ""
+        },
+        "parameters":{
+          "name": ""
+        }
+
     },
 
     {
@@ -372,7 +582,17 @@
         "Bien entendu. Que puis-je faire d'autre pour vous ?",
         "D'accord. Quelque chose d'autre vous ferait plaisir ?",
         "D'accord. Je peux vous être utile pour autre chose ?"
-      ]
+      ],
+      "context":
+        {
+          "id": 20,
+          "input": "",
+          "output": ""
+        },
+        "parameters":{
+          "name": ""
+        }
+
     },
 
     {
@@ -384,7 +604,17 @@
       ],
       "answers": [
         "D'accord."
-      ]
+      ],
+      "context":
+        {
+          "id": 21,
+          "input": "",
+          "output": ""
+        },
+        "parameters":{
+          "name": ""
+        }
+
     },
 
     {
@@ -400,7 +630,17 @@
       "answers": [
         "D'accord.",
         "Je vois."
-      ]
+      ],
+      "context":
+        {
+          "id": 22,
+          "input": "",
+          "output": ""
+        },
+        "parameters":{
+          "name": ""
+        }
+
     },
 
     {
@@ -417,7 +657,18 @@
       ],
       "answers": [
         "Je vous excuse."
-      ]
+      ],
+      "context":
+        {
+          "id": 23,
+          "input": "",
+          "output": ""
+        },
+        "parameters":{
+          "name": ""
+        }
+
+
     },
 
     {
@@ -432,7 +683,17 @@
       ],
       "answers": [
         "Pardon, je pense que j'ai mal compris."
-      ]
+      ],
+      "context":
+        {
+          "id": 24,
+          "input": "",
+          "output": ""
+        },
+        "parameters":{
+          "name": ""
+        }
+
     },
 
     {
@@ -448,7 +709,17 @@
       "answers": [
         "C'est bien de rire, c'est bon pour le moral.",
         "Votre rire est contagieux !"
-      ]
+      ],
+      "context":
+        {
+          "id": 25,
+          "input": "",
+          "output": ""
+        },
+        "parameters":{
+          "name": ""
+        }
+
     },
 
     {
@@ -460,7 +731,17 @@
       ],
       "answers": [
         ":D"
-      ]
+      ],
+      "context":
+        {
+          "id": 26,
+          "input": "",
+          "output": ""
+        },
+        "parameters":{
+          "name": ""
+        }
+
     },
 
     {
@@ -484,7 +765,17 @@
         "Au revoir.",
         "Dans l'espoir de vous revoir bientôt.",
         "Salut, à plus !"
-      ]
+      ],
+      "context":
+        {
+          "id": 27,
+          "input": "",
+          "output": ""
+        },
+        "parameters":{
+          "name": ""
+        }
+
     },
 
     {
@@ -501,7 +792,17 @@
         "Très bien. Je vous laisse retourner à vos occupations. Dites-le-moi si je peux faire quelque chose pour vous.",
         "Je comprends, je vous laisse tranquille. Mais je reste là au cas où.",
         "D'accord. Je ne suis pas loin si vous avez besoin de moi."
-      ]
+      ],
+      "context":
+        {
+          "id": 28,
+          "input": "",
+          "output": ""
+        },
+        "parameters":{
+          "name": ""
+        }
+
     },
 
     {
@@ -513,7 +814,17 @@
       ],
       "answers": [
         "Super !"
-      ]
+      ],
+      "context":
+        {
+          "id": 29,
+          "input": "",
+          "output": ""
+        },
+        "parameters":{
+          "name": ""
+        }
+
     },
 
     {
@@ -526,7 +837,17 @@
       "answers": [
         "Je vous souhaite un joyeux anniversaire et plein de beaux cadeaux !",
         "Bon anniversaire ! Et plein de belles choses pour cette nouvelle année !"
-      ]
+      ],
+      "context":
+        {
+          "id": 30,
+          "input": "",
+          "output": ""
+        },
+        "parameters":{
+          "name": ""
+        }
+
     },
 
     {
@@ -541,7 +862,17 @@
       ],
       "answers": [
         "C'est toujours plus sympa de parler avec quelqu'un qui a le sens de l'humour."
-      ]
+      ],
+      "context":
+        {
+          "id": 31,
+          "input": "",
+          "output": ""
+        },
+        "parameters":{
+          "name": ""
+        }
+
     },
 
 
@@ -551,13 +882,191 @@
       "action": "catalogue-action",
       "keywords": [
         "consulter catalogue",
-        "voir catalogue"
+        "voir catalogue",
+        "veux catalogue"
       ],
       "answers": [
         "Quel type de logement voulez-vous consulter?",
         "Veuillez préciser, s'il vous plaît, le type de logement que vous souhaitez consulter."
-      ]
+      ],
+      "context":
+        {
+          "id": 32,
+          "input": "",
+          "output": "catalogue-action"
+        },
+      "parameters":{
+          "name": ""
+      }
+
     },
+
+    {
+      "action": "type-logement-action",
+      "keywords": [
+        "appartement",
+        "studio",
+        "villa",
+        "maison"
+      ],
+      "answers": [
+        "D'accord. Voulez-vous acheter ou louer?"
+      ],
+      "context":
+        {
+          "id": 33,
+          "input": "catalogue-action",
+          "output": "type-logement-action"
+        },
+        "parameters":{
+          "name": "?"
+        }
+
+    },
+
+    {
+      "action": "achat-action",
+      "keywords": [
+        "acheter"
+      ],
+      "answers": [
+        "D'accord. Voulez-vous fixer la fourchette des prix?"
+      ],
+      "context":
+        {
+          "id": 34,
+          "input": "type-logement-action",
+          "output": "achat-action"
+        },
+        "parameters":{
+          "name": "?"
+        }
+    },
+
+    {
+      "action": "location-action",
+      "keywords": [
+        "louer"
+      ],
+      "answers": [
+        "D'accord. Voulez-vous fixer la fourchette des prix?"
+      ],
+      "context":
+        {
+          "id": 35,
+          "input": "type-logement-action",
+          "output": "location-action"
+        },
+        "parameters":{
+          "name": "?"
+        }
+    },
+
+    {
+      "action": "fourchette-action",
+      "keywords": [
+        ""
+      ],
+      "answers": [
+        "Bien entendu. Souhaitez-vous préciser le nombre de chambres?"
+      ],
+      "context":
+        {
+          "id": 36,
+          "input": "achat-action",
+          "output": "fourchette-action"
+        },
+        "parameters":{
+          "name": "?"
+        }
+    },
+
+    {
+      "action": "min-fourchette-action",
+      "keywords": [
+        "oui",
+        "d accord",
+        "pourquoi pas",
+        "prq pas",
+        "ok"
+      ],
+      "answers": [
+        "Quel est le prix minimum?"
+      ],
+      "context":
+        {
+          "id": 37,
+          "input": "type-logement-action",
+          "output": "min-fourchette-action"
+        },
+        "parameters":{
+          "name": "?"
+        }
+    },
+
+    {
+      "action": "max-fourchette-action",
+      "keywords": [
+        "$$$$DH"
+      ],
+      "answers": [
+        "Quel est le prix maximum?"
+      ],
+      "context":
+        {
+          "id": 38,
+          "input": "min-fourchette-action",
+          "output": "max-fourchette-action"
+        },
+        "parameters":{
+          "name": "?"
+        }
+    },
+
+    {
+      "action": "refuse-fourchette-action",
+      "keywords": [
+        "non",
+        "pas maintenant"
+      ],
+      "answers": [
+        "Comme vous voulez. "
+      ],
+      "context":
+        {
+          "id": 39,
+          "input": "type-logement-action",
+          "output": "refuse-fourchette-action"
+        },
+        "parameters":{
+          "name": ""
+        }
+    },
+
+    {
+      "action": "accepte-nbr-chambres-action",
+      "keywords": [
+        "oui",
+        "d accord",
+        "pourquoi pas",
+        "prq pas",
+        "ok"
+      ],
+      "answers": [
+        "Combien de chambres cherchez-vous?"
+      ],
+      "context":
+        {
+          "id": 40,
+          "input": "",
+          "output": "accepte-nbr-chambres-action"
+        },
+        "parameters":{
+          "name": ""
+        }
+    },
+
+
 
     {
       "action": "prix-action",
@@ -568,7 +1077,17 @@
       ],
       "answers": [
         "Tout dépend du type de logement, ses caratéristiques et son le lieu où il se situe. Veuillez patienter, s'il vous plaît. Je vous donne une idée sur les différents prix."
-      ]
+      ],
+      "context":
+        {
+          "id": 3888,
+          "input": "",
+          "output": ""
+        },
+        "parameters":{
+          "name": ""
+        }
+
     }
 
   ]
