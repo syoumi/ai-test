@@ -11,6 +11,8 @@ const {saveUndefinedAnswer} = require('./functions/saveUndefinedAnswer');
 const {handleMessage} = require('./functions/handleMessage');
 const {handleContextMessage} = require('./functions/handleMessage');
 
+
+
 const {MIN_PERCENT} = require('./include/config');
 
 
@@ -87,6 +89,14 @@ var answer = {
 var message = {
 senderID: 7851846,
   text: "catalogue"
+};
+
+var response = receiveMessage(message);
+console.log(`Bot says: ${response.answer}`);
+
+var message = {
+  senderID: 7851846,
+  text: "appartement"
 };
 
 var response = receiveMessage(message);
