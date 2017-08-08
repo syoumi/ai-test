@@ -44,7 +44,7 @@ var receiveMessage = (request) => {
     //if answer got an output
     if(answer.context.output){
       var params = '';
-      if(answer.parameters[answer.paramers.length-1] === '?'){
+      if(answer.parameters[answer.parameters.length-1] === '?'){
         params= message.text;
       }
       setContext(message.senderID, answer.context, params);
