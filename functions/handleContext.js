@@ -42,7 +42,7 @@ var setContext = (senderID, context, params) => {
     users[index].parameters.push(params);
 
     fs.writeFile('./register/actualContext.json', JSON.stringify(users), function (err) {
-      if (err) return console.log(err);
+      if (err) return console.log('error ' + err);
     });
   }
 
@@ -58,7 +58,7 @@ var setContext = (senderID, context, params) => {
     users.push(user);
 
     fs.writeFile('./register/actualContext.json', JSON.stringify(users), function (err) {
-      if (err) return console.log(err);
+      if (err) return console.log('error ' + err);
     });
 
   }
@@ -72,7 +72,7 @@ var cleanContext = (senderID) => {
       users.splice(index, 1);
 
       fs.writeFile('./register/actualContext.json', JSON.stringify(users), function (err) {
-        if (err) return console.log(err);
+        if (err) return console.log('error ' + err);
       });
     }
 }
