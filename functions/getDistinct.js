@@ -1,3 +1,4 @@
+const {isIgnorable} = require('./ignoreWords');
 
 var getDistinct= (keywords) => {
   var distincts= [];
@@ -9,7 +10,12 @@ var getDistinct= (keywords) => {
       if (distincts.indexOf(word.toLowerCase()) == -1) distincts.push(word.toLowerCase());
     });
   });
-  return  distincts;
+
+  distincts = distincts.filter((item) => {
+    return item != '' && !(isIgnorable(item));
+  });
+
+  return distincts;
 }
 
 
