@@ -36,8 +36,8 @@ var receiveMessage = (request) => {
     }
     //if answer got an output
     if(answer.context.output){
-      var params = undefined;
-      if(answer.parameters != ''){
+      var params = '';
+      if(answer.parameters === '?'){
         params= message.text;
       }
       setContext(message.senderID, answer.context, params);
@@ -68,54 +68,9 @@ var answer = {
 
 // message example
 var message = {
-<<<<<<< HEAD
-  senderID: 108,
-  text: "appartement"
-};
-
-var answer = handleMessage(message);
-//console.log((answer) ? answer : "Je n'ai pas compris ce que vous voulez dire.");
-
-if(!answer) {
-  saveUndefinedAnswer(message.text);
-}
-else{
-  console.log(`Answer: ${answer.answer}`);
-  var context= getContext(message.senderID);
-
-  //Check if there's a context for that user
-  if(context){
-    if(context.output == answer.context.input){
-      console.log(`Context: ${context.output}`);
-
-      //TODO add something
-      //verify if it's the right answer ?
-
-      //For test
-      //var answeer = getAnswer(data[context.id]);
-      // FindMatch with data[context.id]
-
-    }
-    if(!answer.context.output)
-      cleanContext(message.senderID);
-
-  }
-
-  //if answer got an output
-  if(answer.context.output){
-    var params='';
-    if(answer.parameters==='?'){
-      params= message.text;
-    }
-    setContext(message.senderID, answer.context, params);
-  }
-
-}
-=======
   senderID: 7851846,
   text: "abcdef"
 };
 
 var response = receiveMessage(message);
 console.log(`Bot say: ${response.answer}`);
->>>>>>> 0b245de93d39c026ea3b26a6affd2b9dbed33100
