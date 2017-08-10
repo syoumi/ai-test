@@ -11,19 +11,17 @@ var ignorable = fs.readFileSync('./resources/ignorable.json');
 
 var data = JSON.parse(jsonData).data;
 
-
 // handling input, returning action + possible answers
 var handleMessage = (message) => {
-  var text = message.text.toLowerCase();
-  if (text) {
-    var entry = findExactMatch(text);
+  if (message.text) {
+    var entry = findExactMatch(message);
 
     if (entry) {
       // generating random answer
       return getAnswer(entry);
 
     } else {
-      var entry = findMatch(text);
+      var entry = findMatch(message);
       if (entry) {
         // generating random answer
         return getAnswer(entry);
@@ -39,19 +37,6 @@ var handleMessage = (message) => {
   }
 };
 
-
-//Check if there's an answer for message in the context
-var handleContextMessage = (message, context) => {
-  var text = message.text.toLowerCase();
-  if (text) {
-    var entry = findMatchContext(text, context);
-    if(entry)
-      return getAnswer(entry);
-  }
-  return undefined;
-};
-
-
 module.exports = {
-  handleMessage, handleContextMessage
+  handleMessage
 };

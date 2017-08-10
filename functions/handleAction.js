@@ -9,7 +9,6 @@ var getAction = (actionName) => {
     if (item.action == actionName) return true;
     return false;
   });
-  console.log('RETURNIIIIING ' , toReturn);
   return toReturn;
 };
 

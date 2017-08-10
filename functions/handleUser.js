@@ -10,15 +10,16 @@ var userExists = (senderID)=> {
 var setUser = (senderID, action, params) => {
   var data = {
     previousAction: action,
-    parameters: params,
-  }
+    parameters: params
+  };
   users.set(senderID, data);
 }
 
 //Get user
 var getUser = (senderID) => {
+  console.log('MAP ' , users);
   console.log("USER: ", users.get(senderID));
-  return users.get(senderID);
+  return (userExists(senderID))?users.get(senderID):undefined;
 }
 
 //Remove user from map

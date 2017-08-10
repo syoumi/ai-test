@@ -432,7 +432,7 @@
       "previousActions" : [
          "refuse-quartier-action", "refuse-ville-action"
       ]
-    }
+    },
 
     {
       "action": "prix-action",
