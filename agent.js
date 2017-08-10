@@ -7,6 +7,9 @@ const {verifyParam} = require('./functions/handleParams');
 const {lookForSpecificActions} = require('./functions/lookForSpecificActions');
 const {setUser} = require('./functions/handleUser');
 
+
+
+
 var receiveMessage = (request) => {
 
   console.log(`Received message from ${request.senderID}, content ${request.text}`);
@@ -14,13 +17,14 @@ var receiveMessage = (request) => {
   var specificActions = lookForSpecificActions(request.senderID);
   if (specificActions && specificActions.length != 0) {
     // TODO
+
   } else {
     // Looking for a std answer
     answer = handleMessage(request);
     if (answer.answer) {
       // add user to the map or update it
+      //TODO function push parameters
       setUser(request.senderID, answer.action, answer.parameters);
-      console.log('user added');
     }
   }
 
@@ -56,10 +60,19 @@ module.exports = {
 
 var msg = {
   senderID: 123,
+  text: 'salut'
+};
+
+console.log(receiveMessage(msg));
+console.log("BOT SAYS: ", receiveMessage(msg).answer);
+
+var msg = {
+  senderID: 123,
   text: 'consulter catalogue'
 };
 
 console.log(receiveMessage(msg));
+console.log("BOT SAYS: ", receiveMessage(msg).answer);
 
 var msg = {
   senderID: 123,
@@ -67,3 +80,4 @@ var msg = {
 };
 
 console.log(receiveMessage(msg));
+console.log("BOT SAYS: ", receiveMessage(msg).answer);
