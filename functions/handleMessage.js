@@ -4,7 +4,7 @@ const fs = require('fs');
 const {findMatch} = require('./findMatch');
 const {findExactMatch} = require('./findExactMatch');
 const {findMatchContext} = require('./findMatchContext');
-const {getAnswer} = require('./getAnswer');
+const {getAnswer} = require('./handleAnswer');
 
 var jsonData = fs.readFileSync('./resources/data.json');
 var ignorable = fs.readFileSync('./resources/ignorable.json');
