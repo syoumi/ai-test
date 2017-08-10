@@ -13,12 +13,13 @@ var setUser = (senderID, action, params) => {
     parameters: params
   };
   users.set(senderID, data);
+  
+  console.log('MAP ' , users);
 }
 
 //Get user
 var getUser = (senderID) => {
-  console.log('MAP ' , users);
-  console.log("USER: ", users.get(senderID));
+    // console.log("USER: ", users.get(senderID));
   return (userExists(senderID))?users.get(senderID):undefined;
 }
 
