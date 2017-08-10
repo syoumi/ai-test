@@ -10,22 +10,18 @@ const {verifyParam} = require('./functions/handleParams');
 var receiveMessage = (request) => {
   console.log(`Received message from ${request.senderID}, content ${request.text}`);
   var answer = undefined;
+  
+  //Looking for an answer
+  answer = handleMessage(request);
 
-  if(!answer){
-      console.log('HandleMessage');
-
-      //Looking for an answer
-      answer = handleMessage(request);
-
-      // if this is unknown message, save the message in json file
-      if(answer.action === 'unknown-action') {
-        saveUndefinedAnswer(request.text);
-      } else {
-        // console.log(`Answer: ${answer.answer}`);
+  // if this is unknown message, save the message in json file
+  if(answer.action === 'unknown-action') {
+    saveUndefinedAnswer(request.text);
+  } else {
+    // console.log(`Answer: ${answer.answer}`);
 
 
-    }
-  }
+}
 
 
   //Update answer's parameters
