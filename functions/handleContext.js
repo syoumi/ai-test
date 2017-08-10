@@ -5,40 +5,54 @@ const {setUser} = require('./handleUser');
 const {removeUser} = require('./handleUser');
 
 //Get the actual context of user
-var getContext = (senderID) => {
-  var context= undefined;
+var getPreviousAction = (senderID) => {
+  var previousAction= undefined;
 
   if(userExists(senderID)){
     var user = getUser(senderID);
     if(user){
-      context= user.context;
+      previousAction= user.previousAction;
     }
   }
 
-  return context;
+  return previousAction;
 }
 
 
 //Set the actual context of user
-var setContext = (senderID, context, params) => {
+var setPreviousAction = (senderID, action, params) => {
 
   //if user already exists, update context and parameters
   if(userExists(senderID)){
     var user = getUser(senderID);
-    user.context.input = user.context.output;
-    user.context.output = context.output;
-    if (params != '')
-      user.parameters.push(params);
-    setUser(senderID, user.context, user.parameters);
+
+    user.previousAction = action;
+
+    if(params.value != ''){
+      var param = {
+        name: params.name,
+        type: params.type,
+        value: params.value
+      }
+      user.parameters.push(param);
+    }
+
+    setUser(senderID, user.previousAction, user.parameters);
   }
 
   //if user doesn't exists, add new user
   else {
     var parameters = [];
-    if (params !='')
-      parameters.push(params);
+    if(params.value != ''){
+      var param = {
+        name: params.name,
+        type: params.type,
+        value: params.value
+      }
+      parameters.push(param);
+    }
 
-    setUser(senderID, context, parameters);
+    setUser(senderID, action, parameters);
   }
 }
 
@@ -49,7 +63,7 @@ var cleanContext = (senderID) => {
 
 //Get all user's parameters
 var getParameters = (senderID) => {
-  var params= [];
+  var params = [];
   if(userExists(senderID)){
     var user = getUser(senderID);
     params = user.parameters;
@@ -60,5 +74,5 @@ var getParameters = (senderID) => {
 
 
 module.exports= {
-  getContext, setContext, cleanContext, getParameters
+  getPreviousAction, setPreviousAction, cleanContext, getParameters
 }
