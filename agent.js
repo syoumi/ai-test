@@ -15,7 +15,7 @@ var receiveMessage = (request) => {
   if (specificActions && specificActions.length != 0) {
     // TODO
   } else {
-    //Looking for a std answer
+    // Looking for a std answer
     answer = handleMessage(request);
     if (answer.answer) {
       // add user to the map or update it
