@@ -1,4 +1,5 @@
 
+const {getPhoneNumber} = require('./getPhoneNumber');
 
 var getParameter = (userWord, keywordParam) => {
 
@@ -12,7 +13,7 @@ var getParameter = (userWord, keywordParam) => {
 
   switch (type) {
     case 'phone':
-      param.value = getPhoneNumber(obj.messageText);
+      param.value = getPhoneNumber(userWord);
       break;
     default:
       //TODO
