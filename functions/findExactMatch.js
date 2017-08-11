@@ -4,16 +4,20 @@ const {checkEquality} = require('./checkEquality');
 const {removePunctuation} = require('./removePunctuation');
 const {isIgnorable} = require('./ignoreWords');
 const {getUser} = require('./handleUser');
+const {setUser} = require('./handleUser');
+const {getParameter} = require('./parameters/getParameter');
 
 var jsonData = fs.readFileSync('./resources/data.json');
 
 var data = JSON.parse(jsonData).data;
 
 var findExactMatch = (message) => {
-  var text = message.text.toLowerCase().trim();
 
+  //user
   var user = getUser(message.senderID);
 
+  //message text
+  var text = message.text.toLowerCase().trim();
   var wordsTab = text.split(/[ ,.;+]+/);
 
   for (var i = 0; i < wordsTab.length; i++) {
@@ -36,27 +40,39 @@ var findExactMatch = (message) => {
       go = true;
     }
     if (go) {
+      //Foreach keyword in keywords (Sentence in keywords)
       entry.keywords.forEach((keyword) => {
         var params = [];
+
+        //Foreach word in one keyword
         var keywordsArray = keyword.split(' ').filter((item) => {
           return item != '' && !(isIgnorable(item));
         });
 
-        // TODO params
-        keywordsArray.forEach((possibleParam) => {
-          if (possibleParam[0] == '#' && possibleParam[possibleParam.length - 1] == '#') {
-
-          }
-        });
         if (keywordsArray.length === words.length) {
           var areEquals = true;
+          var params = [];
+
           for (var i = 0; i < words.length; i++) {
-            if (!checkEquality(words[i], keywordsArray[i])) {
+            //Check if this word in keyword should be a param
+            if (keywordsArray[i] == '#' && keywordsArray[keywordsArray.length - 1] == '#') {
+                var param = getParameter(words[i], keywordsArray[i]);
+                if(param){
+                  params.push(param);
+                } else {
+                  areEquals = false;
+                  params = [];
+                }
+            }
+            else (!checkEquality(words[i], keywordsArray[i])){
               areEquals = false;
             }
           }
           if (areEquals) {
-            foundEntry = entry;
+            foundEntry = {
+              entry,
+              params
+            };
             // console.log(`STEP ONE RESULT : action ${entry.action}`);
           }
         }

@@ -66,23 +66,23 @@ var msg = {
 
 console.log("BOT SAYS: ", receiveMessage(msg).answer);
 
-var msg = {
-  senderID: 123,
-  text: 'consulter catalogue'
-};
-
-console.log("BOT SAYS: ", receiveMessage(msg).answer);
-
-var msg = {
-  senderID: 123,
-  text: 'rien'
-};
-
-console.log("BOT SAYS: ", receiveMessage(msg).answer);
-
-var msg = {
-  senderID: 123,
-  text: 'appartement'
-};
-
-console.log("BOT SAYS: ", receiveMessage(msg).answer);
+// var msg = {
+//   senderID: 123,
+//   text: 'consulter catalogue'
+// };
+//
+// console.log("BOT SAYS: ", receiveMessage(msg).answer);
+//
+// var msg = {
+//   senderID: 123,
+//   text: 'rien'
+// };
+//
+// console.log("BOT SAYS: ", receiveMessage(msg).answer);
+//
+// var msg = {
+//   senderID: 123,
+//   text: 'appartement'
+// };
+//
+// console.log("BOT SAYS: ", receiveMessage(msg).answer);

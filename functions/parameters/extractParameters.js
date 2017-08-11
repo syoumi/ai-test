@@ -1,12 +1,10 @@
 const {getEmail} = require('./getEmail');
 const {getPhoneNumber} = require('./getPhoneNumber');
 
-/**
- * obj = {messageText , keywordParam}
- */
-var extractParameters = (obj) => {
-  var name = obj.keywordParam.split('|')[0].replace('#', '');
-  var type = obj.keywordParam.split('|')[1].replace('#', '');
+
+var extractParameters = (messageText, keywordParam) => {
+  var name = keywordParam.split('|')[0].replace('#', '');
+  var type = keywordParam.split('|')[1].replace('#', '');
   var param = {
     name,
     type,
@@ -15,7 +13,7 @@ var extractParameters = (obj) => {
 
   switch (type) {
     case 'email':
-      param.value = getEmail(obj.messageText);
+      param.value = getEmail(messageText);
       break;
     case 'phone':
       param.value = getPhoneNumber(obj.messageText);
