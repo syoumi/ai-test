@@ -10,11 +10,11 @@ var userExists = (senderID)=> {
 var setUser = (senderID, action, params) => {
   var data = {
     previousAction: action,
-    parameters: params
+    parameters: params,
+    counter: 2
   };
   users.set(senderID, data);
-  
-  console.log('MAP ' , users);
+
 }
 
 //Get user

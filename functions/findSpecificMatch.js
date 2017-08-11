@@ -19,10 +19,11 @@ var data = JSON.parse(jsonData).data;
 
 
 //Find match context: looking for intent that matchs text
-var findMatchContext = (message, actions) => {
+var findSpecificMatch = (message, actions) => {
   var user = getUser(message.senderID);
 
   var intents = [];
+  // getting all the specific intents to look in
   for(var i = 0; i < actions.length; i++){
     intents.push(getAction(actions[i]));
   };
@@ -44,32 +45,23 @@ var findMatchContext = (message, actions) => {
   for (var i = 0; i < intents.length; i++) {
     var maxEntryPercent = 0;
     var intent = intents[i];
-    var go = false;
-    if (intent.previousActions && intent.previousActions.length != 0) {
-      if (user && intent.previousActions.indexOf(user.previousAction) != -1) {
-        go = true;
+    for (var j = 0; j < intent.keywords.length; j++) {
+      var percent = wordsFound(words, intent.keywords[j]);
+      if (percent > maxEntryPercent) {
+        maxEntryPercent = percent;
       }
-    } else {
-      go = true;
     }
-    if (go) {
-      for (var j = 0; j < intent.keywords.length; j++) {
-        var percent = wordsFound(words, intent.keywords[j]);
-        if (percent > maxEntryPercent) {
-          maxEntryPercent = percent;
-        }
-      }
 
-      if (maxEntryPercent > maxActionPercent) {
-        maxActionPercent = maxEntryPercent;
-        maxActionIndex = i;
-      }
+    if (maxEntryPercent > maxActionPercent) {
+      maxActionPercent = maxEntryPercent;
+      maxActionIndex = i;
     }
   }
 
   // console.log(`CONTEXT STEP TWO RESULT : Action ${data[maxActionIndex].action} , percent ${maxActionPercent}`);
 
   if (maxActionPercent >= MIN_STEP_TWO_PERCENT) {
+    user.counter = 2;
     return intents[maxActionIndex];
   }
   else {
@@ -78,33 +70,30 @@ var findMatchContext = (message, actions) => {
     var maxIndex = 0;
     for (var i = 0; i < intents.length; i++) {
       var intent = intents[i];
-      var go = false;
-      if (intent.previousActions && intent.previousActions.length != 0) {
-        if (user && intent.previousActions.indexOf(user.previousAction) != -1) {
-          go = true;
-        }
-      } else {
-        go = true;
-      }
-      if (go) {
-        var distincts = getDistinct(intent.keywords);
-        var percent = getPercent(words, distincts);
-        if (percent > maxPercent) {
-          maxPercent = percent;
-          maxIndex = i;
-        }
+      var distincts = getDistinct(intent.keywords);
+      var percent = getPercent(words, distincts);
+      if (percent > maxPercent) {
+        maxPercent = percent;
+        maxIndex = i;
       }
     }
 
-    if(maxPercent >= MIN_STEP_THREE_PERCENT)
+    if(maxPercent >= MIN_STEP_THREE_PERCENT){
+      user.counter = 2;
       return intents[maxIndex];
-    else {
-      return getAction('unknown-action');
+    } else {
+      user.counter--;
+      if (user.counter == 0) {
+        user.counter = 2;
+        user.previousAction = '';
+        return undefined;
+      } else {
+        return getAction('unknown-action');
+      }
     }
   }
 }
 
-
 module.exports = {
-  findMatchContext
+  findSpecificMatch
 }
