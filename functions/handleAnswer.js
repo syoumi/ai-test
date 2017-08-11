@@ -4,14 +4,13 @@ var jsonData = fs.readFileSync('./resources/data.json');
 
 var data = JSON.parse(jsonData).data;
 
-var getAnswer = (entry) => {
+var getAnswer = (result) => {
   // generating random index
-  var index = parseInt(Math.random() * entry.answers.length);
+  var index = parseInt(Math.random() * result.entry.answers.length);
   return {
-    action: entry.action,
-    parameters: [
-    ],
-    answer: entry.answers[index]
+    action: result.entry.action,
+    parameters: result.params,
+    answer: result.entry.answers[index]
   };
 };
 
