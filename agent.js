@@ -59,9 +59,16 @@ var sendAnswer = (recipientID, answer) => {
 //   receiveMessage
 // }
 
+// var msg = {
+//   senderID: 123,
+//   text: 'abcd'
+// };
+//
+// console.log("BOT SAYS: ", receiveMessage(msg).answer);
+
 var msg = {
   senderID: 123,
-  text: 'salut'
+  text: 'mon num 0660000000 merci'
 };
 
 console.log("BOT SAYS: ", receiveMessage(msg).answer);

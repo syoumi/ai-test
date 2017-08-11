@@ -1,5 +1,5 @@
 
-const {getPhoneNumber} = require('./getPhoneNumber');
+const {getPhoneNumber} = require('./phone');
 
 var getParameter = (userWord, keywordParam) => {
 
