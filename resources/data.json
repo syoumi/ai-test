@@ -533,6 +533,31 @@
     },
 
     {
+      "action": "demande-phone-action",
+      "keywords": [
+        "abcd"
+
+      ],
+      "answers": [
+        "Votre numéro de téléphone svp."
+      ],
+      "nextActions": ["number-phone-action"],
+      "previousActions": []
+    },
+
+    {
+      "action": "number-phone-action",
+      "keywords": [
+        "mon num #numberPhone|phone# merci"
+      ],
+      "answers": [
+        "J'ai bien reçu votre numéro de téléphone, merci beaucoup."
+      ],
+      "nextActions": [],
+      "previousActions": []
+    },
+
+    {
       "action": "out-of-context",
       "keywords": [],
       "answers": [
