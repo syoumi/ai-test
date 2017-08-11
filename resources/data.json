@@ -468,6 +468,70 @@
 
       ]
     },
+
+    {
+      "action": "email-action",
+      "keywords": [
+        "Mon email est #userEmail|email#",
+        "#userEmail|email# est mon email",
+        "#userEmail|email#"
+      ],
+      "answers": [
+        "J'ai bien reçu votre email, voulez vous me donner votre téléphone également ?"
+      ],
+      "nextActions": [
+        "yes-phone-action",
+        "phone-action",
+        "no-phone-action"
+      ],
+      "previousActions" : []
+    },
+    {
+      "action": "yes-phone-action",
+      "keywords": [
+        "oui",
+        "bien sûr",
+        "d'accord",
+        "ok",
+        "oui je veux"
+      ],
+      "answers": [
+        "Parfait, donnez moi alors votre numéro ..."
+      ],
+      "nextActions": ["phone-action"],
+      "previousActions": ["email-action"]
+    },
+    {
+      "action": "phone-action",
+      "keywords": [
+        "#userPhone|phone#",
+        "voilà mon numéro #userPhone|phone#",
+        "mon numéro est #userPhone|phone#",
+        "#userPhone|phone# est mon numéro",
+        "numéro téléphone #userPhone|phone#",
+        "#userPhone|phone# téléphone"
+      ],
+      "answers": [
+        "J'ai bien reçu votre numéro de téléphone, merci beaucoup."
+      ],
+      "nextActions": [],
+      "previousActions": ["email-action", "yes-phone-action"]
+    },
+    {
+      "action": "no-phone-action",
+      "keywords": [
+        "non",
+        "je ne veux pas",
+        "non je ne veux pas",
+        "non merci"
+      ],
+      "answers": [
+        "D'accord je comprends ..."
+      ],
+      "nextActions": [],
+      "previousActions": ["email-action"]
+    },
+
     {
       "action": "out-of-context",
       "keywords": [],

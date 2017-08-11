@@ -11,9 +11,10 @@ var data = JSON.parse(jsonData).data;
 
 var findExactMatch = (message) => {
   var text = message.text.toLowerCase().trim();
+
   var user = getUser(message.senderID);
 
-  var wordsTab = text.split(/[ ,;.]+/);
+  var wordsTab = text.split(/[ ,.;+]+/);
 
   for (var i = 0; i < wordsTab.length; i++) {
     wordsTab[i] = removePunctuation(wordsTab[i]);
@@ -36,8 +37,16 @@ var findExactMatch = (message) => {
     }
     if (go) {
       entry.keywords.forEach((keyword) => {
+        var params = [];
         var keywordsArray = keyword.split(' ').filter((item) => {
           return item != '' && !(isIgnorable(item));
+        });
+
+        // TODO params
+        keywordsArray.forEach((possibleParam) => {
+          if (possibleParam[0] == '#' && possibleParam[possibleParam.length - 1] == '#') {
+
+          }
         });
         if (keywordsArray.length === words.length) {
           var areEquals = true;

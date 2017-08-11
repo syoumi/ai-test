@@ -1,14 +1,12 @@
+//TODO ./functions/findExactMatch integrating parameters
 
-const {getParameters} = require('./functions/handleContext');
 const {saveUndefinedAnswer} = require('./functions/saveUndefinedAnswer');
 const {handleMessage} = require('./functions/handleMessage');
-const {getAnswer} = require('./functions/handleAnswer');
-const {verifyParam} = require('./functions/handleParams');
+const {findSpecificMatch} = require('./functions/findSpecificMatch');
 const {lookForSpecificActions} = require('./functions/lookForSpecificActions');
 const {setUser} = require('./functions/handleUser');
-
-
-
+const {getUser} = require('./functions/handleUser');
+const {getAnswer} = require('./functions/handleAnswer');
 
 var receiveMessage = (request) => {
 
@@ -16,17 +14,19 @@ var receiveMessage = (request) => {
   var answer = undefined;
   var specificActions = lookForSpecificActions(request.senderID);
   if (specificActions && specificActions.length != 0) {
-    // TODO
+    var action = findSpecificMatch(request, specificActions);
+    answer = (action) ? getAnswer(action) : undefined;
+  }
 
-  } else {
+  if (!answer) {
     // Looking for a std answer
     answer = handleMessage(request);
     if (answer.answer) {
       // add user to the map or update it
       //TODO function push parameters
-      setUser(request.senderID, answer.action, answer.parameters);
     }
   }
+
 
 
   // if this is unknown message, save the message in json file
@@ -34,12 +34,13 @@ var receiveMessage = (request) => {
     saveUndefinedAnswer(request.text);
   } else {
     // console.log(`Answer: ${answer.answer}`);
+    setUser(request.senderID, answer.action, answer.parameters);
   }
 
 
   // Update answer's parameters
   // answer.parameters = getParameters(request.senderID);
-
+  console.log('User object ' , getUser(request.senderID));
   var response = sendAnswer(request.senderID, answer);
   return response;
 };
@@ -53,17 +54,16 @@ var sendAnswer = (recipientID, answer) => {
   };
   return toSend;
 }
-
-module.exports = {
-  receiveMessage
-}
+//
+// module.exports = {
+//   receiveMessage
+// }
 
 var msg = {
   senderID: 123,
   text: 'salut'
 };
 
-console.log(receiveMessage(msg));
 console.log("BOT SAYS: ", receiveMessage(msg).answer);
 
 var msg = {
@@ -71,7 +71,13 @@ var msg = {
   text: 'consulter catalogue'
 };
 
-console.log(receiveMessage(msg));
+console.log("BOT SAYS: ", receiveMessage(msg).answer);
+
+var msg = {
+  senderID: 123,
+  text: 'rien'
+};
+
 console.log("BOT SAYS: ", receiveMessage(msg).answer);
 
 var msg = {
@@ -79,5 +85,4 @@ var msg = {
   text: 'appartement'
 };
 
-console.log(receiveMessage(msg));
 console.log("BOT SAYS: ", receiveMessage(msg).answer);
