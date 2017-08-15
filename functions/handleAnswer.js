@@ -6,6 +6,7 @@ var data = JSON.parse(jsonData).data;
 
 var getAnswer = (result) => {
   // generating random index
+  console.log('RESULT IS ' , result);
   var index = parseInt(Math.random() * result.entry.answers.length);
   return {
     action: result.entry.action,
