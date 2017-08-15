@@ -55,10 +55,11 @@ var findExactMatch = (message) => {
 
           for (var i = 0; i < words.length; i++) {
             //Check if this word in keyword should be a param
-            if (keywordsArray[i] == '#' && keywordsArray[keywordsArray.length - 1] == '#') {
+            if (keywordsArray[i][0] == '#' && keywordsArray[i][keywordsArray.length - 1] == '#') {
                 var param = getParameter(words[i], keywordsArray[i]);
                 if(param){
                   params.push(param);
+                  console.log("Param: ", param);
                 } else {
                   areEquals = false;
                   params = [];
