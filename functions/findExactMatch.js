@@ -64,7 +64,7 @@ var findExactMatch = (message) => {
                   params = [];
                 }
             }
-            else (!checkEquality(words[i], keywordsArray[i])){
+            else if (!checkEquality(words[i], keywordsArray[i])){
               areEquals = false;
             }
           }
