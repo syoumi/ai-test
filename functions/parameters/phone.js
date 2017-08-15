@@ -1,4 +1,3 @@
-const validator = require('validator');
 
 //const phone = require('phone');
 
@@ -17,7 +16,7 @@ var getPhoneNumber = (text) => {
   }
   var phoneNumber = undefined;
   for (var i = 0; i < possibleNumbers.length; i++) {
-     if (validator.isMobilePhone(possibleNumbers[i], 'en-US')) {
+    if (isMobilePhone(possibleNumbers[i])) {
       phoneNumber = possibleNumbers[i];
     }
     /* if (phone(possibleNumbers[i])) {
@@ -27,6 +26,25 @@ var getPhoneNumber = (text) => {
   return phoneNumber;
 };
 
+// 0655971068
+// +212655971068
+var isMobilePhone = (phone) => {
+  var isValid = (phone.length >= 8) ? true : false;
+  if (!(phone[0] == '+' || phone[0] == '0')) {
+    isValid = false;
+  } else {
+    if (phone[0] == '+' && (phone.length < 12 || phone.length > 14)) {
+      isValid = false;
+    } else if (phone[0]) {
+      if (phone[1] == '0' && (phone.length < 12 || phone.length > 16)) {
+        isValid = false;
+      } else if (phone[1] != '0' && (phone.length < 8 || phone.length > 12)) {
+        isValid = false;
+      }
+    }
+  }
+  return isValid;
+};
 
 module.exports = {
   getPhoneNumber
