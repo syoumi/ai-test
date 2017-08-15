@@ -18,7 +18,7 @@ var findExactMatch = (message) => {
 
   //message text
   var text = message.text.toLowerCase().trim();
-  var wordsTab = text.split(/[ ,.;+]+/);
+  var wordsTab = text.split(/[ ,.;+:]+/);
 
   for (var i = 0; i < wordsTab.length; i++) {
     wordsTab[i] = removePunctuation(wordsTab[i]);
@@ -57,12 +57,13 @@ var findExactMatch = (message) => {
             //Check if this word in keyword should be a param
             if (keywordsArray[i][0] == '#' && keywordsArray[i][keywordsArray.length - 1] == '#') {
                 var param = getParameter(words[i], keywordsArray[i]);
-                if(param){
+                if(param.value){
                   params.push(param);
                   console.log("Param: ", param);
                 } else {
                   areEquals = false;
                   params = [];
+                  break;
                 }
             }
             else if (!checkEquality(words[i], keywordsArray[i])){

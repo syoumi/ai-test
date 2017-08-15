@@ -8,6 +8,9 @@ var userExists = (senderID)=> {
 
 //Insert or update user
 var setUser = (senderID, action, params) => {
+  if(!params){
+     params = [];
+  }
   var data = {
     previousAction: action,
     parameters: params,

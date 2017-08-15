@@ -16,10 +16,11 @@ var jsonData = fs.readFileSync('./resources/data.json');
 var data = JSON.parse(jsonData).data;
 
 var findMatch = (message) => {
-  var text = message.text.toLowerCase().trim();
+
   var user = getUser(message.senderID);
 
-  var wordsTab = text.split(/[ ,;.]+/);
+  var text = message.text.toLowerCase().trim();
+  var wordsTab = text.split(/[ ,;.+:]+/);
 
   for (var i = 0; i < wordsTab.length; i++) {
     wordsTab[i] = removePunctuation(wordsTab[i]);
@@ -31,6 +32,8 @@ var findMatch = (message) => {
 
   var maxActionPercent = 0;
   var maxActionIndex = 0;
+  var params = [];
+
   for (var i = 0; i < data.length; i++) {
     var entry = data[i];
     var go = false;
@@ -44,7 +47,8 @@ var findMatch = (message) => {
     if (go) {
       var maxEntryPercent = 0;
       for (var j = 0; j < entry.keywords.length; j++) {
-        var percent = wordsFound(words, entry.keywords[j]);
+        var result = wordsFound(words, entry.keywords[j]);
+        var percent = result.percent;
         if (percent > maxEntryPercent) {
           maxEntryPercent = percent;
         }
@@ -52,6 +56,7 @@ var findMatch = (message) => {
       if (maxEntryPercent > maxActionPercent) {
         maxActionPercent = maxEntryPercent;
         maxActionIndex = i;
+        params = result.params;
       }
     }
   }
@@ -59,13 +64,18 @@ var findMatch = (message) => {
   // console.log(`STEP TWO RESULT : Action ${data[maxActionIndex].action} , percent ${maxActionPercent}`);
 
   if (maxActionPercent >= MIN_STEP_TWO_PERCENT) {
-    return data[maxActionIndex];
+    var result = {
+      entry: data[maxActionIndex],
+      params
+    }
+    return result;
   }
   else {
     // If percentage is not enough use next method
 
     var maxPercent = 0;
     var maxIndex = 0;
+    var params = [];
     for (var i = 0; i < data.length; i++) {
       var entry = data[i];
       var go = false;
@@ -78,19 +88,26 @@ var findMatch = (message) => {
       }
       if (go) {
         var distincts = getDistinct(entry.keywords);
-        var percent = getPercent(words, distincts);
+        var result =  getPercent(words, distincts);
+        var percent = result.percent;
         // console.log('Percent found ' , percent);
         if (percent > maxPercent) {
           maxPercent = percent;
           maxIndex = i;
           //i++;
+          params =  getPercent(words, distincts).params;
         }
       }
     }
     // console.log(`STEP THREE RESULT : Percent ${maxPercent}, action ${data[maxIndex].action}`);
 
-    if(maxPercent >= MIN_STEP_THREE_PERCENT)
-      return data[maxIndex];
+    if(maxPercent >= MIN_STEP_THREE_PERCENT){
+      var result = {
+        entry: data[maxIndex],
+        params
+      }
+      return result;
+    }
     else {
       return undefined;
     }
