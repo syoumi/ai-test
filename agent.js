@@ -35,6 +35,7 @@ var receiveMessage = (request) => {
   } else {
     // console.log(`Answer: ${answer.answer}`);
     setUser(request.senderID, answer.action, answer.parameters);
+
   }
 
 
@@ -68,7 +69,14 @@ var sendAnswer = (recipientID, answer) => {
 
 var msg = {
   senderID: 123,
-  text: 'mon num 0660000000 merci'
+  text: 'Mon num est +14155552671 merci'
+};
+
+console.log("BOT SAYS: ", receiveMessage(msg).answer);
+
+var msg = {
+  senderID: 123,
+  text: 'Salut'
 };
 
 console.log("BOT SAYS: ", receiveMessage(msg).answer);
