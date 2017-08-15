@@ -1,14 +1,16 @@
 
+//const phone = require('phone');
+
 var getPhoneNumber = (text) => {
   var possibleNumbers = [];
   var digits = '1234567890';
   for (var i = 0; i < text.length; i++) {
-    if (digits.indexOf(text[i]) != -1 || (text[i] == '+' && i == 0)) {
+    if (digits.indexOf(text[i]) != -1 || (text[i] == '+')) {
       var number = '';
       do {
         number = number.concat(text[i]);
         i++;
-      } while (digits.indexOf(text[i]) != -1);
+      } while (digits.indexOf(text[i]) != -1 || (text[i] == '+') );
       possibleNumbers.push(number);
     }
   }
@@ -17,6 +19,9 @@ var getPhoneNumber = (text) => {
     if (isMobilePhone(possibleNumbers[i])) {
       phoneNumber = possibleNumbers[i];
     }
+    /* if (phone(possibleNumbers[i])) {
+      phoneNumber = possibleNumbers[i];
+    }  */
   }
   return phoneNumber;
 };

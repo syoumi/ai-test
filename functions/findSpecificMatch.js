@@ -28,25 +28,28 @@ var findSpecificMatch = (message, actions) => {
     intents.push(getAction(actions[i]));
   };
 
+  //Doesn't split on .
+  var wordsTab = message.text.split(/[ ,;+:]+/);
 
-  var wordsTab = message.text.split(/[ ,;.]+/);
-
-  for (var i = 0; i < wordsTab.length; i++) {
-      wordsTab[i] = removePunctuation(wordsTab[i]);
-  }
+  // for (var i = 0; i < wordsTab.length; i++) {
+  //     wordsTab[i] = removePunctuation(wordsTab[i]);
+  // }
 
   var words = wordsTab.filter((element) => {
       return element != '' && !(isIgnorable(element));
   });
 
+
   var maxActionPercent = 0;
   var maxActionIndex = 0;
+  var params = [];
 
   for (var i = 0; i < intents.length; i++) {
     var maxEntryPercent = 0;
     var intent = intents[i];
     for (var j = 0; j < intent.keywords.length; j++) {
-      var percent = wordsFound(words, intent.keywords[j]);
+      var result = wordsFound(words, intent.keywords[j]);
+      var percent = result.percent;
       if (percent > maxEntryPercent) {
         maxEntryPercent = percent;
       }
