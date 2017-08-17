@@ -53,6 +53,7 @@ var findMatch = (message) => {
   // console.log(`STEP TWO RESULT : Action ${data[maxActionIndex].action} , percent ${maxActionPercent}`);
 
   if (maxActionPercent >= MIN_STEP_TWO_PERCENT) {
+    console.log('FIND MATCH 1');
     var result = {
       entry: data[maxActionIndex],
       params
@@ -76,15 +77,16 @@ var findMatch = (message) => {
         go = true;
       }
       if (go) {
+        console.log('FIND  MATCH 2 ');
         var distincts = getDistinct(entry.keywords);
-        var result =  getPercent(words, distincts);
+        var result =  getPercent(message.text, distincts, entry.hasParam);
         var percent = result.percent;
         // console.log('Percent found ' , percent);
         if (percent > maxPercent) {
           maxPercent = percent;
           maxIndex = i;
           //i++;
-          params =  getPercent(words, distincts).params;
+          params =  result.params;
         }
       }
     }
