@@ -17,12 +17,15 @@ var wordsFound = (text, keyword, hasParam) => {
       var paramKeyword = keyword.substr(fstSharp, scdSharp - fstSharp + 1);
       var parameter = extractParameters(text, paramKeyword);
       if (param.value) {
-
+        params.push(param);
+        text.replace(param.value, '');
+        keyword.replace(paramKeyword, '');
       } else {
-
+        return {percent: 0, params: undefined};
       }
     }
   }
+
   var keywordArray = keyword.split(' ').filter((item) => {
     return item != '' && !(isIgnorable(item));
   });
