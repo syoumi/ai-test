@@ -19,17 +19,6 @@ var findMatch = (message) => {
 
   var user = getUser(message.senderID);
 
-  var text = message.text.toLowerCase().trim();
-  var wordsTab = text.split(/[ ,;.+:]+/);
-
-  for (var i = 0; i < wordsTab.length; i++) {
-    wordsTab[i] = removePunctuation(wordsTab[i]);
-  }
-
-  var words = wordsTab.filter((element) => {
-    return element != '' && !(isIgnorable(element));
-  });
-
   var maxActionPercent = 0;
   var maxActionIndex = 0;
   var params = [];
@@ -47,7 +36,7 @@ var findMatch = (message) => {
     if (go) {
       var maxEntryPercent = 0;
       for (var j = 0; j < entry.keywords.length; j++) {
-        var result = wordsFound(words, entry.keywords[j]);
+        var result = wordsFound(message.text, entry.keywords[j], entry.hasParam);
         var percent = result.percent;
         if (percent > maxEntryPercent) {
           maxEntryPercent = percent;
