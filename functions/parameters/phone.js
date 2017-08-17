@@ -1,7 +1,9 @@
 
 //const phone = require('phone');
 
-var getPhoneNumber = (text) => {
+
+//Extract phone number from a text
+var extractPhoneNumber = (text) => {
   var possibleNumbers = [];
   var digits = '1234567890';
   for (var i = 0; i < text.length; i++) {
@@ -26,6 +28,19 @@ var getPhoneNumber = (text) => {
   return phoneNumber;
 };
 
+
+//Get phone number by word
+var getPhoneNumber = (word) => {
+  var phoneNumber = undefined;
+
+  if (isMobilePhone(word)) {
+    phoneNumber = word;
+  }
+
+  return phoneNumber;
+};
+
+
 // 0655971068
 // +212655971068
 var isMobilePhone = (phone) => {
@@ -46,6 +61,7 @@ var isMobilePhone = (phone) => {
   return isValid;
 };
 
+
 module.exports = {
-  getPhoneNumber
+  getPhoneNumber, extractPhoneNumber
 };

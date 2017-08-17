@@ -1,6 +1,6 @@
 const validator = require('validator');
 
-var getEmail = (text) => {
+var extractEmail = (text) => {
   var tab = text.trim().split(/[ ,;?!:/\\*+'"<>]+/).filter((item) => {
     return item != '';
   });
@@ -15,5 +15,5 @@ var getEmail = (text) => {
 };
 
 module.exports = {
-  getEmail
+  extractEmail
 };
