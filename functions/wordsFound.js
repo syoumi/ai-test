@@ -1,6 +1,7 @@
 const {checkEquality} = require('./checkEquality');
 
 const {isIgnorable} = require('./ignoreWords');
+const {splitMessage} = require('./splitMessage');
 
 const {extractParameters} = require('./parameters/extractParameters');
 
@@ -30,7 +31,7 @@ var wordsFound = (text, keyword, hasParam) => {
     return item != '' && !(isIgnorable(item));
   });
 
-
+  var words = splitMessage(text);
 
   words.forEach((word) => {
     keywordArray.forEach((item) => {
