@@ -13,7 +13,7 @@ var jsonData = fs.readFileSync('./resources/data.json');
 var data = JSON.parse(jsonData).data;
 
 var findExactMatch = (message) => {
-  console.log('FIND EXACT MATCH');
+  
   //user
   var user = getUser(message.senderID);
 

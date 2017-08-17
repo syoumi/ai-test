@@ -20,6 +20,7 @@ var data = JSON.parse(jsonData).data;
 
 //Find match context: looking for intent that matchs text
 var findSpecificMatch = (message, actions) => {
+
   var user = getUser(message.senderID);
 
   var intents = [];
@@ -46,6 +47,7 @@ var findSpecificMatch = (message, actions) => {
     if (maxEntryPercent > maxActionPercent) {
       maxActionPercent = maxEntryPercent;
       maxActionIndex = i;
+      params = result.params;
     }
   }
 
@@ -53,25 +55,32 @@ var findSpecificMatch = (message, actions) => {
 
   if (maxActionPercent >= MIN_STEP_TWO_PERCENT) {
     user.counter = 2;
-    return intents[maxActionIndex];
+    return {entry: intents[maxActionIndex], params};
+
   }
   else {
     // If percentage is not enough use next method
     var maxPercent = 0;
     var maxIndex = 0;
+    var params = [];
+
     for (var i = 0; i < intents.length; i++) {
       var intent = intents[i];
       var distincts = getDistinct(intent.keywords);
-      var percent = getPercent(words, distincts);
+      var result = getPercent(message.text, distincts, intent.hasParam);
+      console.log('RESULT: ', result);
+      var percent = result.percent;
       if (percent > maxPercent) {
         maxPercent = percent;
         maxIndex = i;
+        params = result.params;
       }
     }
 
+
     if(maxPercent >= MIN_STEP_THREE_PERCENT){
       user.counter = 2;
-      return intents[maxIndex];
+      return {entry: intents[maxIndex], params};
     } else {
       user.counter--;
       if (user.counter == 0) {
@@ -79,7 +88,7 @@ var findSpecificMatch = (message, actions) => {
         user.previousAction = '';
         return undefined;
       } else {
-        return getAction('unknown-action');
+        return {entry: getAction('unknown-action'), params: undefined};
       }
     }
   }
