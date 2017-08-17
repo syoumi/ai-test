@@ -19,8 +19,8 @@ var wordsFound = (text, keyword, hasParam) => {
       var parameter = extractParameters(text, paramKeyword);
       if (param.value) {
         params.push(param);
-        text.replace(param.value, '');
-        keyword.replace(paramKeyword, '');
+        text = text.replace(param.value, '');
+        keyword = keyword.replace(paramKeyword, '');
       } else {
         return {percent: 0, params: undefined};
       }
@@ -35,15 +35,7 @@ var wordsFound = (text, keyword, hasParam) => {
 
   words.forEach((word) => {
     keywordArray.forEach((item) => {
-      if (item[0] == '#' && item[item.length - 1] == '#') {
-          var param = getParameter(word, item);
-          if(param.value){
-            //console.log("Param: ", param);
-            params.push(param);
-            counter++;
-          }
-      }
-      else if (checkEquality(word, item)) {
+      if (checkEquality(word, item)) {
         counter++;
       }
     });
