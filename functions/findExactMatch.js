@@ -6,6 +6,7 @@ const {isIgnorable} = require('./ignoreWords');
 const {getUser} = require('./handleUser');
 const {setUser} = require('./handleUser');
 const {getParameter} = require('./parameters/getParameter');
+const {splitMessage} = require('./splitMessage');
 
 var jsonData = fs.readFileSync('./resources/data.json');
 
@@ -17,16 +18,8 @@ var findExactMatch = (message) => {
   var user = getUser(message.senderID);
 
   //message text
-  var text = message.text.toLowerCase().trim();
-  var wordsTab = text.split(/[ ,.;+:]+/);
 
-  for (var i = 0; i < wordsTab.length; i++) {
-    wordsTab[i] = removePunctuation(wordsTab[i]);
-  }
-
-  var words = wordsTab.filter((element) => {
-    return element != '' && !(isIgnorable(element));
-  });
+  var words = splitMessage(message.text);
 
   var foundEntry = undefined;
 
