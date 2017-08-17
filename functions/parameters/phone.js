@@ -6,6 +6,7 @@
 var extractPhoneNumber = (text) => {
   var possibleNumbers = [];
   var digits = '1234567890';
+  // TODO remove -, ,.
   for (var i = 0; i < text.length; i++) {
     if (digits.indexOf(text[i]) != -1 || (text[i] == '+')) {
       var number = '';
@@ -20,6 +21,7 @@ var extractPhoneNumber = (text) => {
   for (var i = 0; i < possibleNumbers.length; i++) {
     if (isMobilePhone(possibleNumbers[i])) {
       phoneNumber = possibleNumbers[i];
+      break;
     }
     /* if (phone(possibleNumbers[i])) {
       phoneNumber = possibleNumbers[i];

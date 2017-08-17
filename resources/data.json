@@ -177,7 +177,8 @@
     {
       "action": "max-fourchette-action",
       "keywords": [
-        "#maxPrice|currency#"
+        "#maxPrice|currency#",
+        "Le prix max est #maxPrice|currency#"
       ],
       "answers": [
         "C'est noté. Souhaitez-vous spécifier le nombre de chambres?"
