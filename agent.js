@@ -14,8 +14,8 @@ var receiveMessage = (request) => {
   var answer = undefined;
   var specificActions = lookForSpecificActions(request.senderID);
   if (specificActions && specificActions.length != 0) {
-    var action = findSpecificMatch(request, specificActions);
-    answer = (action) ? getAnswer(action) : undefined;
+    var result = findSpecificMatch(request, specificActions);
+    answer = (result.entry) ? getAnswer(result) : undefined;
   }
 
   if (!answer) {
@@ -33,7 +33,7 @@ var receiveMessage = (request) => {
   if(answer.action === 'unknown-action') {
     saveUndefinedAnswer(request.text);
   } else {
-    // console.log(`Answer: ${answer.answer}`);
+    //console.log(`SET USER; Answer: ${answer.answer}`);
     setUser(request.senderID, answer.action, answer.parameters);
 
   }
@@ -69,7 +69,28 @@ var sendAnswer = (recipientID, answer) => {
 
 var msg = {
   senderID: 123,
-  text: 'J ai un email: mita.oumaima@gmail.com mercii'
+  text: 'Voici mon email: mita.oumaima@gmail.com'
+};
+
+console.log("BOT SAYS: ", receiveMessage(msg).answer);
+
+var msg = {
+  senderID: 123,
+  text: 'mon numéro de téléphone est 0661896654'
+};
+
+console.log("BOT SAYS: ", receiveMessage(msg).answer);
+
+var msg = {
+  senderID: 123,
+  text: 'Salut'
+};
+
+console.log("BOT SAYS: ", receiveMessage(msg).answer);
+
+var msg = {
+  senderID: 123,
+  text: 'Voici mon email: chatbot.neoxia@gmail.com'
 };
 
 console.log("BOT SAYS: ", receiveMessage(msg).answer);

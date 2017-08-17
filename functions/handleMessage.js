@@ -10,24 +10,25 @@ var ignorable = fs.readFileSync('./resources/ignorable.json');
 
 var data = JSON.parse(jsonData).data;
 
-// handling input, returning action + possible answers
+// handling input, returning action + possible answers + parameters
 var handleMessage = (message) => {
   if (message.text) {
-    var entry = findExactMatch(message);
 
-    if (entry) {
+    //Exact Match
+    var result = findExactMatch(message);
+
+    if (result) {
       // generating random answer
-      return getAnswer(entry);
+      return getAnswer(result);
 
     } else {
-      var entry = findMatch(message);
-      if (entry) {
+      result = findMatch(message);
+      if (result) {
         // generating random answer
-        
-        return getAnswer(entry);
+        return getAnswer(result);
 
       } else {
-        var unknownaction = data.find((entry) => entry.action === 'unknown-action');
+        var unknownaction = {entry: data.find((entry) => entry.action === 'unknown-action'), params: undefined};
         return getAnswer(unknownaction);
       }
     }

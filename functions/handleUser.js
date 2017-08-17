@@ -1,29 +1,40 @@
 
 var users = new Map();
 
-var userExists = (senderID)=> {
-  return users.has(senderID);
-}
-
-
 //Insert or update user
 var setUser = (senderID, action, params) => {
-  if(!params){
-     params = [];
+
+  var user = getUser(senderID);
+  var counter = 2;
+
+  if(user){
+
+    //parameters
+    params = handleParams(user, params);
+
+    //params = user.parameters.concat(params);
+
+    //Counter
+    counter = user.counter;
+
+  }else{
+      if(!params) params = [];
   }
+
+
+  //Data
   var data = {
     previousAction: action,
     parameters: params,
-    counter: 2
+    counter
   };
-  users.set(senderID, data);
 
+  users.set(senderID, data);
 }
 
 //Get user
 var getUser = (senderID) => {
-    // console.log("USER: ", users.get(senderID));
-  return (userExists(senderID))?users.get(senderID):undefined;
+  return (users.has(senderID)) ? users.get(senderID) : undefined;
 }
 
 //Remove user from map
@@ -32,7 +43,30 @@ var removeUser = (senderID) => {
       users.delete(senderID);
 }
 
+//Handle user's parameters
+var handleParams = (user, params) => {
+
+  if(params){
+
+    //For each param in params, check if it already exists on userParams
+     params.forEach((param) => {
+       var paramFound = user.parameters.find((userParam) => userParam.name == param.name);
+       //Update param if already exists
+       if(paramFound){
+         var index = user.parameters.indexOf(paramFound);
+         user.parameters[index]= param;
+       }
+       //ELse push new param
+       else{
+         user.parameters.push(param);
+       }
+     });
+   }
+
+   return user.parameters;
+}
+
 
 module.exports= {
-  userExists, setUser, getUser, removeUser
+  setUser, getUser, removeUser
 }

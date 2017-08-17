@@ -53,19 +53,17 @@ var findMatch = (message) => {
   // console.log(`STEP TWO RESULT : Action ${data[maxActionIndex].action} , percent ${maxActionPercent}`);
 
   if (maxActionPercent >= MIN_STEP_TWO_PERCENT) {
-    console.log('FIND MATCH 1');
-    var result = {
+    return {
       entry: data[maxActionIndex],
       params
-    }
-    return result;
+    };
   }
   else {
     // If percentage is not enough use next method
-
     var maxPercent = 0;
     var maxIndex = 0;
     var params = [];
+
     for (var i = 0; i < data.length; i++) {
       var entry = data[i];
       var go = false;
@@ -77,15 +75,13 @@ var findMatch = (message) => {
         go = true;
       }
       if (go) {
-        console.log('FIND  MATCH 2 ');
         var distincts = getDistinct(entry.keywords);
         var result =  getPercent(message.text, distincts, entry.hasParam);
         var percent = result.percent;
-        // console.log('Percent found ' , percent);
+        //console.log('Percent found ' , percent);
         if (percent > maxPercent) {
           maxPercent = percent;
           maxIndex = i;
-          //i++;
           params =  result.params;
         }
       }
@@ -93,11 +89,10 @@ var findMatch = (message) => {
     // console.log(`STEP THREE RESULT : Percent ${maxPercent}, action ${data[maxIndex].action}`);
 
     if(maxPercent >= MIN_STEP_THREE_PERCENT){
-      var result = {
+      return {
         entry: data[maxIndex],
         params
-      }
-      return result;
+      };
     }
     else {
       return undefined;
