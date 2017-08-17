@@ -29,17 +29,6 @@ var extractPhoneNumber = (text) => {
 };
 
 
-//Get phone number from a word
-var getPhoneNumber = (word) => {
-  var phoneNumber = undefined;
-
-  if (isMobilePhone(word)) {
-    phoneNumber = word;
-  }
-
-  return phoneNumber;
-};
-
 
 // 0655971068
 // +212655971068
@@ -63,5 +52,5 @@ var isMobilePhone = (phone) => {
 
 
 module.exports = {
-  getPhoneNumber, extractPhoneNumber
+  extractPhoneNumber, isMobilePhone
 };
