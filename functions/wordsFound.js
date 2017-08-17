@@ -10,13 +10,13 @@ var wordsFound = (text, keyword, hasParam) => {
   var counter = 0;
   var params = [];
 
-  if (hasParam) {
+  if (hasParam == '1') {
     // Extract parameters from text
     while (keyword.indexOf('#') != keyword.lastIndexOf('#') && keyword.indexOf('#') != -1) {
       var fstSharp = keyword.indexOf('#');
       var scdSharp = keyword.indexOf('#', fstSharp + 1);
       var paramKeyword = keyword.substr(fstSharp, scdSharp - fstSharp + 1);
-      var parameter = extractParameters(text, paramKeyword);
+      var param = extractParameters(text, paramKeyword);
       if (param.value) {
         params.push(param);
         text = text.replace(param.value, '');

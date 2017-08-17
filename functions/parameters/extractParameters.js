@@ -1,5 +1,5 @@
-const {getEmail} = require('./getEmail');
-const {getPhoneNumber} = require('./getPhoneNumber');
+const {extractEmail} = require('./email');
+const {extractPhoneNumber} = require('./phone');
 
 
 var extractParameters = (messageText, keywordParam) => {
@@ -13,10 +13,10 @@ var extractParameters = (messageText, keywordParam) => {
 
   switch (type) {
     case 'email':
-      param.value = getEmail(messageText);
+      param.value = extractEmail(messageText);
       break;
     case 'phone':
-      param.value = getPhoneNumber(messageText);
+      param.value = extractPhoneNumber(messageText);
       break;
     default:
       //TODO

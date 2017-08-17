@@ -1,5 +1,6 @@
 
-const {getPhoneNumber} = require('./phone');
+
+const {isMobilePhone} = require('./phone');
 
 var getParameter = (userWord, keywordParam) => {
 
@@ -13,7 +14,7 @@ var getParameter = (userWord, keywordParam) => {
 
   switch (type) {
     case 'phone':
-      param.value = getPhoneNumber(userWord);
+      param.value = isMobilePhone(userWord)? userWord : undefined;
       break;
     default:
       //TODO
