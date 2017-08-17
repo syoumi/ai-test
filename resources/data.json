@@ -396,10 +396,25 @@
         "#userEmail|email#"
       ],
       "answers": [
-        "J'ai bien reçu votre email."
+        "J'ai bien reçu votre email. Votre numéro de téléphone svp."
+      ],
+      "nextActions": ["phone-number-action"],
+      "previousActions" : [],
+      "hasParam": "1"
+    },
+    {
+      "action": "phone-number-action",
+      "keywords": [
+        "mon numéro de téléphone est #userPhoneNumber|phone#",
+        "#userPhoneNumber|phone# est mon numéro de téléphone",
+        "Voici mon numéro de téléphone #userPhoneNumber|phone#",
+        "#userPhoneNumber|phone#"
+      ],
+      "answers": [
+        "J'ai bien reçu votre numéro de téléphone."
       ],
       "nextActions": [],
-      "previousActions" : [],
+      "previousActions" : ["email-action"],
       "hasParam": "1"
     }
 

@@ -25,6 +25,7 @@ var extractPhoneNumber = (text) => {
       phoneNumber = possibleNumbers[i];
     }  */
   }
+  //console.log('PHONE NUMBER: ', phoneNumber);
   return phoneNumber;
 };
 
