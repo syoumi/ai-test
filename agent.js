@@ -69,17 +69,12 @@ var sendAnswer = (recipientID, answer) => {
 
 var msg = {
   senderID: 123,
-  text: 'Mon email est mita.oumaima@gmail.com merci'
+  text: 'J ai un email: mita.oumaima@gmail.com mercii'
 };
 
 console.log("BOT SAYS: ", receiveMessage(msg).answer);
 
-var msg = {
-  senderID: 123,
-  text: 'Salut'
-};
 
-console.log("BOT SAYS: ", receiveMessage(msg).answer);
 
 // var msg = {
 //   senderID: 123,
