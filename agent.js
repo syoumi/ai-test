@@ -69,7 +69,7 @@ var sendAnswer = (recipientID, answer) => {
 
 var msg = {
   senderID: 123,
-  text: 'Mon num est +14155552671 merci'
+  text: 'Mon email est mita.oumaima@gmail.com merci'
 };
 
 console.log("BOT SAYS: ", receiveMessage(msg).answer);
