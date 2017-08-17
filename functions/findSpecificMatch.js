@@ -48,7 +48,7 @@ var findSpecificMatch = (message, actions) => {
     var maxEntryPercent = 0;
     var intent = intents[i];
     for (var j = 0; j < intent.keywords.length; j++) {
-      var result = wordsFound(words, intent.keywords[j]);
+      var result = wordsFound(message.text, intent.keywords[j], intent.hasParam);
       var percent = result.percent;
       if (percent > maxEntryPercent) {
         maxEntryPercent = percent;
