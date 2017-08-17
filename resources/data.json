@@ -20,12 +20,9 @@
         "Salut à vous !",
         "Salutations !"
       ],
-      "nextActions": [
-
-      ],
-      "previousActions" : [
-
-      ]
+      "nextActions": [],
+      "previousActions" : [],
+      "hasParam": "0"
     },
 
     {
@@ -49,12 +46,9 @@
         "C'est bon.",
         "Bien entendu."
       ],
-      "nextActions": [
-
-      ],
-      "previousActions" : [
-
-      ]
+      "nextActions": [],
+      "previousActions" : [],
+      "hasParam": "0"
     },
 
     {
@@ -71,12 +65,9 @@
         "C'est noté.",
         "Comme vous voulez."
       ],
-      "nextActions": [
-
-      ],
-      "previousActions" : [
-
-      ]
+      "nextActions": [],
+      "previousActions" : [],
+      "hasParam": "0"
     },
 
     {
@@ -101,12 +92,9 @@
         "C'est toujours un plaisir de vous rendre service.",
         "Aucun problème, je suis là pour ça."
       ],
-      "nextActions": [
-
-      ],
-      "previousActions" : [
-
-      ]
+      "nextActions": [],
+      "previousActions" : [],
+      "hasParam": "0"
     },
 
     {
@@ -131,40 +119,27 @@
     {
       "action": "type-logement-action",
       "keywords": [
-        "appartement",
-        "studio",
-        "villa",
-        "maison",
-        "#logement#"
+        "#logement|building#"
       ],
       "answers": [
         "D'accord. Voulez-vous acheter ou louer?"
       ],
-      "nextActions": [
-        "operation-action"
-      ],
-      "previousActions" : [
-        "catalogue-action"
-      ]
+      "nextActions": ["operation-action"],
+      "previousActions" : ["catalogue-action"],
+      "hasParam": "1"
     },
 
     {
       "action": "operation-action",
       "keywords": [
-        "acheter",
-        "louer",
-        "#operation#"
+        "#operation|operation#"
       ],
       "answers": [
         "D'accord. Voulez-vous fixer la fourchette des prix?"
       ],
-      "nextActions": [
-        "accept-fourchette-action",
-        "refuse-fourchette-action"
-      ],
-      "previousActions" : [
-        "operation-action"
-      ]
+      "nextActions": ["accept-fourchette-action", "refuse-fourchette-action"],
+      "previousActions" : ["operation-action"],
+      "hasParam": "1"
     },
 
     {
@@ -181,44 +156,35 @@
       "answers": [
         "D'accord. Veuillez spéficier le prix minimum (en DH), s'il vous plaît."
       ],
-      "nextActions": [
-        "min-fourchette-action"
-      ],
-      "previousActions" : [
-        "operation-action"
-      ]
+      "nextActions": ["min-fourchette-action"],
+      "previousActions" : ["operation-action"],
+      "hasParam": "0"
     },
 
     {
       "action": "min-fourchette-action",
       "keywords": [
-        "#minPrice#"
+        "#minPrice|currency#"
       ],
       "answers": [
         "Veuillez spéficier le prix maximum (en DH), s'il vous plaît."
       ],
-      "nextActions": [
-        "max-fourchette-action"
-      ],
-      "previousActions" : [
-        "accept-fourchette-action"
-      ]
+      "nextActions": ["max-fourchette-action"],
+      "previousActions" : ["accept-fourchette-action"],
+      "hasParam": "1"
     },
 
     {
       "action": "max-fourchette-action",
       "keywords": [
-        "#maxPrice#"
+        "#maxPrice|currency#"
       ],
       "answers": [
         "C'est noté. Souhaitez-vous spécifier le nombre de chambres?"
       ],
-      "nextActions": [
-        "accept-nbr-chambres-action", "refuse-nbr-chambres-action"
-      ],
-      "previousActions" : [
-        "min-fourchette-action"
-      ]
+      "nextActions": ["accept-nbr-chambres-action", "refuse-nbr-chambres-action"],
+      "previousActions" : ["min-fourchette-action"],
+      "hasParam": "1"
     },
 
     {
@@ -231,12 +197,9 @@
       "answers": [
         "C'est noté. Souhaitez-vous spécifier le nombre de chambres?"
       ],
-      "nextActions": [
-        "accept-nbr-chambres-action", "refuse-nbr-chambres-action"
-      ],
-      "previousActions" : [
-        "operation-action"
-      ]
+      "nextActions": ["accept-nbr-chambres-action", "refuse-nbr-chambres-action"],
+      "previousActions" : ["operation-action"],
+      "hasParam": "0"
     },
 
     {
@@ -251,30 +214,22 @@
       "answers": [
         "Combien de chambres cherchez-vous?"
       ],
-      "nextActions": [
-        "def-nbr-chambres-action"
-      ],
-      "previousActions" : [
-        "max-fourchette-action",
-        "refuse-fourchette-action"
-      ]
+      "nextActions": ["def-nbr-chambres-action"],
+      "previousActions" : ["max-fourchette-action", "refuse-fourchette-action"],
+      "hasParam": "0"
     },
 
     {
       "action": "def-nbr-chambres-action",
       "keywords": [
-        "#nbrRooms#"
+        "#nbrRooms|number#"
       ],
       "answers": [
         "C'est noté. Voulez-vous choisir une ville? "
       ],
-      "nextActions": [
-        "accept-ville-action",
-        "refuse-ville-action"
-      ],
-      "previousActions" : [
-        "accepte-nbr-chambres-action"
-      ]
+      "nextActions": ["accept-ville-action", "refuse-ville-action"],
+      "previousActions" : ["accepte-nbr-chambres-action"],
+      "hasParam": "1"
     },
 
     {
@@ -287,14 +242,9 @@
       "answers": [
         "Comme vous voulez. Voulez-vous choisir une ville? "
       ],
-      "nextActions": [
-        "accept-ville-action",
-        "refuse-ville-action"
-      ],
-      "previousActions" : [
-        "refuse-fourchette-action",
-        "max-fourchette-action"
-      ]
+      "nextActions": ["accept-ville-action", "refuse-ville-action"],
+      "previousActions" : ["refuse-fourchette-action", "max-fourchette-action"],
+      "hasParam": "0"
     },
 
     {
@@ -310,30 +260,22 @@
         "Laquelle?",
         "Quelle ville?"
       ],
-      "nextActions": [
-        "nom-ville-action"
-      ],
-      "previousActions" : [
-        "accept-ville-action",
-        "refuse-nbr-chambres-action"
-      ]
+      "nextActions": ["nom-ville-action"],
+      "previousActions" : ["accept-ville-action", "refuse-nbr-chambres-action"],
+      "hasParam": "0"
     },
 
     {
       "action": "nom-ville-action",
       "keywords": [
-        "#city#"
+        "#ville|city#"
       ],
       "answers": [
         "D'accord. Peut-être voulez-vous choisir, également, un quartier?"
       ],
-      "nextActions": [
-        "accept-quartier-action",
-        "refuse-quartier-action"
-      ],
-      "previousActions" : [
-        "accept-ville-action"
-      ]
+      "nextActions": ["accept-quartier-action", "refuse-quartier-action"],
+      "previousActions" : ["accept-ville-action"],
+      "hasParam": "1"
     },
 
     {
@@ -346,14 +288,9 @@
       "answers": [
         "D'accord. Confirmez-vous vos choix?"
       ],
-      "nextActions": [
-        "confirmer-catalogue-action",
-        "no-action"
-      ],
-      "previousActions" : [
-        "def-nbr-chambres-action",
-        "refuse-nbr-chambres-action"
-      ]
+      "nextActions": ["confirmer-catalogue-action", "no-action"],
+      "previousActions" : ["def-nbr-chambres-action", "refuse-nbr-chambres-action"],
+      "hasParam": "0"
     },
 
     {
@@ -370,28 +307,22 @@
         "Quel quartier?",
         "Donnez, s'il vous plaît, le nom du quartier."
       ],
-      "nextActions": [
-        "nom-quartier-action"
-      ],
-      "previousActions" : [
-        "nom-ville-action"
-      ]
+      "nextActions": ["nom-quartier-action"],
+      "previousActions" : ["nom-ville-action"],
+      "hasParam": "0"
     },
 
     {
       "action": "nom-quartier-action",
       "keywords": [
-        "#neighborhood#"
+        "#quartier|neighborhood#"
       ],
       "answers": [
         "C'est noté."
       ],
-      "nextActions": [
-
-      ],
-      "previousActions" : [
-        "accept-quartier-action"
-      ]
+      "nextActions": [],
+      "previousActions" : ["accept-quartier-action"],
+      "hasParam": "1"
     },
 
     {
@@ -404,13 +335,9 @@
       "answers": [
         "Comme vous voulez. Confirmez-vous vos choix?"
       ],
-      "nextActions": [
-        "confirmer-catalogue-action",
-        "no-action"
-      ],
-      "previousActions" : [
-        "nom-ville-action"
-      ]
+      "nextActions": ["confirmer-catalogue-action","no-action"],
+      "previousActions" : ["nom-ville-action"],
+      "hasParam": "0"
     },
 
     {
@@ -426,12 +353,9 @@
       "answers": [
         "D'accord."
       ],
-      "nextActions": [
-
-      ],
-      "previousActions" : [
-         "refuse-quartier-action", "refuse-ville-action"
-      ]
+      "nextActions": [],
+      "previousActions" : ["refuse-quartier-action", "refuse-ville-action"],
+      "hasParam": "0"
     },
 
     {
@@ -444,12 +368,9 @@
       "answers": [
         "Tout dépend du type de logement, ses caratéristiques et son le lieu où il se situe. Veuillez patienter, s'il vous plaît. Je vous donne une idée sur les différents prix."
       ],
-      "nextActions": [
-
-      ],
-      "previousActions" : [
-
-      ]
+      "nextActions": [],
+      "previousActions" : [],
+      "hasParam": "0"
     },
 
     {
@@ -461,12 +382,9 @@
         "Je crois que je ne vous suis plus. Pouvez-vous clarifier votre message ?",
         "Votre message me paraît difficile à comprendre. Expliquez, s'il vous plaît!"
       ],
-      "nextActions": [
-
-      ],
-      "previousActions" : [
-
-      ]
+      "nextActions": [],
+      "previousActions" : [],
+      "hasParam": "0"
     },
 
     {
@@ -484,7 +402,8 @@
         "phone-action",
         "no-phone-action"
       ],
-      "previousActions" : []
+      "previousActions" : [],
+      "hasParam": "1"
     },
     {
       "action": "yes-phone-action",
@@ -499,7 +418,8 @@
         "Parfait, donnez moi alors votre numéro ..."
       ],
       "nextActions": ["phone-action"],
-      "previousActions": ["email-action"]
+      "previousActions": ["email-action"],
+      "hasParam": "0"
     },
     {
       "action": "phone-action",
@@ -515,7 +435,8 @@
         "J'ai bien reçu votre numéro de téléphone, merci beaucoup."
       ],
       "nextActions": [],
-      "previousActions": ["email-action", "yes-phone-action"]
+      "previousActions": ["email-action", "yes-phone-action"],
+      "hasParam": "1"
     },
     {
       "action": "no-phone-action",
@@ -529,47 +450,10 @@
         "D'accord je comprends ..."
       ],
       "nextActions": [],
-      "previousActions": ["email-action"]
-    },
-
-    {
-      "action": "demande-phone-action",
-      "keywords": [
-        "abcd"
-
-      ],
-      "answers": [
-        "Votre numéro de téléphone svp."
-      ],
-      "nextActions": ["number-phone-action"],
-      "previousActions": []
-    },
-
-    {
-      "action": "number-phone-action",
-      "keywords": [
-        "mon num #numberPhone|phone# merci"
-      ],
-      "answers": [
-        "J'ai bien reçu votre numéro de téléphone, merci beaucoup."
-      ],
-      "nextActions": [],
-      "previousActions": []
-    },
-
-    {
-      "action": "out-of-context",
-      "keywords": [],
-      "answers": [
-        "  تفعيل اللغة العربية  "
-      ],
-      "nextActions": [
-
-      ],
-      "previousActions" : [
-
-      ]
+      "previousActions": ["email-action"],
+      "hasParam": "0"
     }
+
 
   ]
 }
