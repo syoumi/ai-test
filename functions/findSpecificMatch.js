@@ -28,18 +28,6 @@ var findSpecificMatch = (message, actions) => {
     intents.push(getAction(actions[i]));
   };
 
-  //Doesn't split on .
-  var wordsTab = message.text.split(/[ ,;+:]+/);
-
-  // for (var i = 0; i < wordsTab.length; i++) {
-  //     wordsTab[i] = removePunctuation(wordsTab[i]);
-  // }
-
-  var words = wordsTab.filter((element) => {
-      return element != '' && !(isIgnorable(element));
-  });
-
-
   var maxActionPercent = 0;
   var maxActionIndex = 0;
   var params = [];

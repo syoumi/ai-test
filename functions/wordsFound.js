@@ -10,6 +10,7 @@ var wordsFound = (text, keyword, hasParam) => {
   var counter = 0;
   var params = [];
 
+
   if (hasParam == '1') {
     // Extract parameters from text
     while (keyword.indexOf('#') != keyword.lastIndexOf('#') && keyword.indexOf('#') != -1) {
@@ -30,6 +31,7 @@ var wordsFound = (text, keyword, hasParam) => {
   var keywordArray = keyword.split(' ').filter((item) => {
     return item != '' && !(isIgnorable(item));
   });
+
 
   var words = splitMessage(text);
 
