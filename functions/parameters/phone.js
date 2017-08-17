@@ -29,7 +29,7 @@ var extractPhoneNumber = (text) => {
 };
 
 
-//Get phone number by word
+//Get phone number from a word
 var getPhoneNumber = (word) => {
   var phoneNumber = undefined;
 
