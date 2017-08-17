@@ -16,14 +16,10 @@ var extractParameters = (messageText, keywordParam) => {
       param.value = getEmail(messageText);
       break;
     case 'phone':
-      param.value = getPhoneNumber(obj.messageText);
+      param.value = getPhoneNumber(messageText);
       break;
     default:
       //TODO
-  }
-
-  if (param.value) {
-    obj.messageText = obj.messageText.replace(param.value, obj.keywordParam);
   }
 
   return param;

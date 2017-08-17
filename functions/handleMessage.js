@@ -17,14 +17,12 @@ var handleMessage = (message) => {
 
     if (entry) {
       // generating random answer
-      console.log('Entry 1 ' , entry);
       return getAnswer(entry);
 
     } else {
       var entry = findMatch(message);
       if (entry) {
         // generating random answer
-        console.log('Entry 2 ' , entry);
         
         return getAnswer(entry);
 
