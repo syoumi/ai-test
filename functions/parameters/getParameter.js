@@ -1,6 +1,6 @@
 
 
-cons {isMobilePhone} = require('./phone');
+const {isMobilePhone} = require('./phone');
 
 var getParameter = (userWord, keywordParam) => {
 
