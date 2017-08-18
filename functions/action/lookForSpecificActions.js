@@ -1,4 +1,4 @@
-const {getUser} = require('./handleUser');
+const {getUser} = require('./../user/handleUser');
 const {getAction} = require('./handleAction');
 
 var lookForSpecificActions = (senderID) => {

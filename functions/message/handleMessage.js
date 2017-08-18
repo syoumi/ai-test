@@ -1,9 +1,9 @@
 
 const fs = require('fs');
 
-const {findMatch} = require('./findMatch');
-const {findExactMatch} = require('./findExactMatch');
-const {getAnswer} = require('./handleAnswer');
+const {findMatch} = require('./../match/findMatch');
+const {findExactMatch} = require('./../match/findExactMatch');
+const {getAnswer} = require('./../answer/handleAnswer');
 
 var jsonData = fs.readFileSync('./resources/data.json');
 var ignorable = fs.readFileSync('./resources/ignorable.json');

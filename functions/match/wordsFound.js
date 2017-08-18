@@ -1,9 +1,9 @@
 const {checkEquality} = require('./checkEquality');
 
-const {isIgnorable} = require('./ignoreWords');
-const {splitMessage} = require('./splitMessage');
+const {isIgnorable} = require('./../treatment/ignoreWords');
+const {splitMessage} = require('./../treatment/splitMessage');
 
-const {extractParameters} = require('./parameters/extractParameters');
+const {extractParameters} = require('./../parameters/extractParameters');
 
 var wordsFound = (text, keyword, hasParam) => {
 

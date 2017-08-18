@@ -1,4 +1,4 @@
-const {isIgnorable} = require('./ignoreWords');
+const {isIgnorable} = require('./../treatment/ignoreWords');
 
 var getDistinct= (keywords) => {
   var distincts= [];

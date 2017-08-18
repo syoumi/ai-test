@@ -1,8 +1,8 @@
 const {checkEquality} = require('./checkEquality');
 
-const {extractParameters} = require('./parameters/extractParameters');
+const {extractParameters} = require('./../parameters/extractParameters');
 
-const {splitMessage} = require('./splitMessage');
+const {splitMessage} = require('./../treatment/splitMessage');
 
 var getPercent= (text, keywords, hasParam)=> {
   //keywords ===> array of distincts words in intent.keywords
