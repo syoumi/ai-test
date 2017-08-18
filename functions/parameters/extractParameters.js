@@ -1,6 +1,9 @@
 const {extractEmail} = require('./email');
 const {extractPhoneNumber} = require('./phone');
 const {extractCity} = require('./city');
+const {extractNeighborhood} = require('./neighborhood');
+const {extractOperation} = require('./operation');
+const {extractBuilding} = require('./building');
 
 
 var extractParameters = (messageText, keywordParam) => {
@@ -12,8 +15,6 @@ var extractParameters = (messageText, keywordParam) => {
     value: undefined
   };
 
-
-
   switch (type) {
     case 'email':
       param.value = extractEmail(messageText);
@@ -23,6 +24,15 @@ var extractParameters = (messageText, keywordParam) => {
       break;
     case 'city':
       param.value = extractCity(messageText);
+      break;
+    case 'neighborhood':
+      param.value = extractNeighborhood(messageText);
+      break;
+    case 'operation':
+      param.value = extractOperation(messageText);
+      break;
+    case 'building':
+      param.value = extractBuilding(messageText);
       break;
     default:
       //TODO

@@ -2,6 +2,9 @@
 
 const {isMobilePhone} = require('./phone');
 const {getCity} = require('./city');
+const {getNeighborhood} = require('./neighborhood');
+const {getOperation} = require('./operation');
+const {getBuilding} = require('./building');
 
 var getParameter = (userWord, keywordParam) => {
 
@@ -19,6 +22,15 @@ var getParameter = (userWord, keywordParam) => {
       break;
     case 'city':
       param.value = getCity(userWord);
+      break;
+    case 'neighborhood':
+      param.value = getNeighborhood(userWord);
+      break;
+    case 'operation':
+      param.value = getOperation(userWord);
+      break;
+    case 'building':
+      param.value = getBuilding(userWord);
       break;
     default:
       //TODO

@@ -58,7 +58,7 @@ var sendAnswer = (recipientID, answer) => {
 
 var msg = {
   senderID: 123,
-  text: "je souhaite visiter bnimalal"
+  text: "je veux acheter un appartement "
 };
 
 console.log("BOT SAYS: ", receiveMessage(msg).answer);
