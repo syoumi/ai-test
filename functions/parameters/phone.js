@@ -6,17 +6,18 @@
 var extractPhoneNumber = (text) => {
   var possibleNumbers = [];
   var digits = '1234567890';
-  // TODO remove -, ,.
+  text = text.replace(/[ .-]+/, '');
   for (var i = 0; i < text.length; i++) {
     if (digits.indexOf(text[i]) != -1 || (text[i] == '+')) {
       var number = '';
       do {
         number = number.concat(text[i]);
         i++;
-      } while (digits.indexOf(text[i]) != -1 || (text[i] == '+') );
+      } while (digits.indexOf(text[i]) != -1 || text[i] == '+' || text[i] == '.' || text[i] == '-' || text[i] == ' ' || text[i] == '(' || text[i] == ')');
       possibleNumbers.push(number);
     }
   }
+  console.log(possibleNumbers);
   var phoneNumber = undefined;
   for (var i = 0; i < possibleNumbers.length; i++) {
     if (isMobilePhone(possibleNumbers[i])) {
@@ -32,26 +33,28 @@ var extractPhoneNumber = (text) => {
 };
 
 
-
-// 0655971068
-// +212655971068
 var isMobilePhone = (phone) => {
   var isValid = (phone.length >= 8) ? true : false;
   if (!(phone[0] == '+' || phone[0] == '0')) {
     isValid = false;
   } else {
-    if (phone[0] == '+' && (phone.length < 12 || phone.length > 14)) {
+    if (phone[0] == '+' && (phone.length < 12 || phone.length > 20)) {
       isValid = false;
     } else if (phone[0]) {
-      if (phone[1] == '0' && (phone.length < 12 || phone.length > 16)) {
+      if (phone[1] == '0' && (phone.length < 12 || phone.length > 22)) {
         isValid = false;
-      } else if (phone[1] != '0' && (phone.length < 8 || phone.length > 12)) {
+      } else if (phone[1] != '0' && (phone.length < 8 || phone.length > 20)) {
         isValid = false;
       }
     }
   }
   return isValid;
 };
+
+console.log(extractPhoneNumber('Mon numéro est 06 55 97 10 68'));
+console.log(extractPhoneNumber('Mon numéro est +212 655 97 10 68'));
+console.log(extractPhoneNumber('Mon numéro est +(212) 655 97 10 68'));
+console.log(extractPhoneNumber('Mon numéro est 06-55-97-10-68'));
 
 
 module.exports = {
