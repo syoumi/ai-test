@@ -417,7 +417,21 @@
       "nextActions": [],
       "previousActions" : ["email-action"],
       "hasParam": "1"
+    },
+
+    {
+      "action": "city-action",
+      "keywords": [
+        "je souhaite visiter #ville|city#"
+      ],
+      "answers": [
+        "D'accord."
+      ],
+      "nextActions": [],
+      "previousActions" : [],
+      "hasParam": "1"
     }
+
 
 
 

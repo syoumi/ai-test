@@ -55,45 +55,41 @@ var sendAnswer = (recipientID, answer) => {
   };
   return toSend;
 }
-//
-// module.exports = {
-//   receiveMessage
-// }
+
+var msg = {
+  senderID: 123,
+  text: "je souhaite visiter bnimalal"
+};
+
+console.log("BOT SAYS: ", receiveMessage(msg).answer);
 
 // var msg = {
 //   senderID: 123,
-//   text: 'abcd'
+//   text: 'Voici mon email: mita.oumaima@gmail.com'
 // };
 //
 // console.log("BOT SAYS: ", receiveMessage(msg).answer);
-
-var msg = {
-  senderID: 123,
-  text: 'Voici mon email: mita.oumaima@gmail.com'
-};
-
-console.log("BOT SAYS: ", receiveMessage(msg).answer);
-
-var msg = {
-  senderID: 123,
-  text: 'mon numéro de téléphone est 0661896654'
-};
-
-console.log("BOT SAYS: ", receiveMessage(msg).answer);
-
-var msg = {
-  senderID: 123,
-  text: 'Salut'
-};
-
-console.log("BOT SAYS: ", receiveMessage(msg).answer);
-
-var msg = {
-  senderID: 123,
-  text: 'Voici mon email: chatbot.neoxia@gmail.com'
-};
-
-console.log("BOT SAYS: ", receiveMessage(msg).answer);
+//
+// var msg = {
+//   senderID: 123,
+//   text: 'mon numéro de téléphone est 0661896654'
+// };
+//
+// console.log("BOT SAYS: ", receiveMessage(msg).answer);
+//
+// var msg = {
+//   senderID: 123,
+//   text: 'Salut'
+// };
+//
+// console.log("BOT SAYS: ", receiveMessage(msg).answer);
+//
+// var msg = {
+//   senderID: 123,
+//   text: 'Voici mon email: chatbot.neoxia@gmail.com'
+// };
+//
+// console.log("BOT SAYS: ", receiveMessage(msg).answer);
 
 
 
