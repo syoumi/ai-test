@@ -1,19 +1,19 @@
 const fs = require('fs');
 
 const {checkEquality} = require('./checkEquality');
-const {removePunctuation} = require('./removePunctuation');
-const {isIgnorable} = require('./ignoreWords');
-const {getUser} = require('./handleUser');
-const {setUser} = require('./handleUser');
-const {getParameter} = require('./parameters/getParameter');
-const {splitMessage} = require('./splitMessage');
+const {removePunctuation} = require('./../treatment/removePunctuation');
+const {isIgnorable} = require('./../treatment/ignoreWords');
+const {getUser} = require('./../user/handleUser');
+const {setUser} = require('./../user/handleUser');
+const {getParameter} = require('./../parameters/getParameter');
+const {splitMessage} = require('./../treatment/splitMessage');
 
 var jsonData = fs.readFileSync('./resources/data.json');
 
 var data = JSON.parse(jsonData).data;
 
 var findExactMatch = (message) => {
-  
+
   //user
   var user = getUser(message.senderID);
 

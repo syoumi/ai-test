@@ -1,12 +1,12 @@
 //TODO ./functions/findExactMatch integrating parameters
 
-const {saveUndefinedAnswer} = require('./functions/saveUndefinedAnswer');
-const {handleMessage} = require('./functions/handleMessage');
-const {findSpecificMatch} = require('./functions/findSpecificMatch');
-const {lookForSpecificActions} = require('./functions/lookForSpecificActions');
-const {setUser} = require('./functions/handleUser');
-const {getUser} = require('./functions/handleUser');
-const {getAnswer} = require('./functions/handleAnswer');
+const {saveUndefinedAnswer} = require('./functions/message/saveUndefinedAnswer');
+const {handleMessage} = require('./functions/message/handleMessage');
+const {findSpecificMatch} = require('./functions/match/findSpecificMatch');
+const {lookForSpecificActions} = require('./functions/action/lookForSpecificActions');
+const {setUser} = require('./functions/user/handleUser');
+const {getUser} = require('./functions/user/handleUser');
+const {getAnswer} = require('./functions/answer/handleAnswer');
 
 var receiveMessage = (request) => {
 

@@ -2,7 +2,7 @@ const fs = require('fs');
 
 const {similarity} = require('./similarity');
 
-const {MIN_SIMILARITY_PERCENT} = require('./../include/config');
+const {MIN_SIMILARITY_PERCENT} = require('./../../include/config');
 
 
 var checkEquality = (s1, s2) => {

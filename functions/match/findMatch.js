@@ -1,15 +1,15 @@
 const fs = require('fs');
 
 const {checkEquality} = require('./checkEquality');
-const {removePunctuation} = require('./removePunctuation');
+const {removePunctuation} = require('./../treatment/removePunctuation');
 const {wordsFound} = require('./wordsFound');
 const {getDistinct} = require('./getDistinct');
 const {getPercent} = require('./getPercent');
-const {isIgnorable} = require('./ignoreWords');
-const {getUser} = require('./handleUser');
+const {isIgnorable} = require('./../treatment/ignoreWords');
+const {getUser} = require('./../user/handleUser');
 
-const {MIN_STEP_TWO_PERCENT} = require('./../include/config');
-const {MIN_STEP_THREE_PERCENT} = require('./../include/config');
+const {MIN_STEP_TWO_PERCENT} = require('./../../include/config');
+const {MIN_STEP_THREE_PERCENT} = require('./../../include/config');
 
 var jsonData = fs.readFileSync('./resources/data.json');
 
