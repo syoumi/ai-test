@@ -430,6 +430,19 @@
       "nextActions": [],
       "previousActions" : [],
       "hasParam": "1"
+    },
+
+    {
+      "action": "operation-operation-action",
+      "keywords": [
+        "je veux #operation|operation# #logement|building#"
+      ],
+      "answers": [
+        "D'accord. C'est noté !"
+      ],
+      "nextActions": [],
+      "previousActions" : [],
+      "hasParam": "1"
     }
 
 

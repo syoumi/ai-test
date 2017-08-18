@@ -3,7 +3,7 @@
   "list": [
     {
       "city": "Agadir",
-      "neighborhood": [
+      "neighborhoods": [
 
       ],
       "region": "Souss-Massa-Draa"
@@ -11,7 +11,7 @@
 
     {
       "city": "Beni Mellal",
-      "neighborhood": [
+      "neighborhoods": [
 
       ],
       "region": ""
@@ -19,7 +19,7 @@
 
     {
       "city": "Casablanca",
-      "neighborhood": [
+      "neighborhoods": [
         "Aïn chock",
         "Aïn Diab",
         "Aïn Sbai",
@@ -37,7 +37,7 @@
 
     {
       "city": "Dakhla",
-      "neighborhood": [
+      "neighborhoods": [
 
       ],
       "region": ""
@@ -45,7 +45,7 @@
 
     {
       "city": "El Jadida",
-      "neighborhood": [
+      "neighborhoods": [
 
       ],
       "region": ""
@@ -53,7 +53,7 @@
 
     {
       "city": "Fès",
-      "neighborhood": [
+      "neighborhoods": [
 
       ],
       "region": ""
@@ -61,7 +61,7 @@
 
     {
       "city": "Guelmim",
-      "neighborhood": [
+      "neighborhoods": [
 
       ],
       "region": ""
@@ -69,7 +69,7 @@
 
     {
       "city": "Ifrane",
-      "neighborhood": [
+      "neighborhoods": [
 
       ],
       "region": ""
@@ -77,7 +77,7 @@
 
     {
       "city": "Kenitra",
-      "neighborhood": [
+      "neighborhoods": [
 
       ],
       "region": ""
@@ -85,7 +85,7 @@
 
     {
       "city": "Laayoune",
-      "neighborhood": [
+      "neighborhoods": [
 
       ],
       "region": ""
@@ -93,7 +93,7 @@
 
     {
       "city": "Marrakech",
-      "neighborhood": [
+      "neighborhoods": [
 
       ],
       "region": ""
@@ -101,7 +101,7 @@
 
     {
       "city": "Safi",
-      "neighborhood": [
+      "neighborhoods": [
         "Azib Derai",
         "Saada",
         "Miftah Lkhir",
@@ -113,7 +113,7 @@
 
     {
       "city": "Salé",
-      "neighborhood": [
+      "neighborhoods": [
 
       ],
       "region": ""
@@ -122,7 +122,7 @@
 
     {
       "city": "Sidi Rahhal",
-      "neighborhood": [
+      "neighborhoods": [
 
       ],
       "region": ""
@@ -130,7 +130,7 @@
 
     {
       "city": "Tanger",
-      "neighborhood": [
+      "neighborhoods": [
 
       ],
       "region": ""
@@ -138,7 +138,7 @@
 
     {
       "city": "Rabat",
-      "neighborhood": [
+      "neighborhoods": [
 
       ],
       "region": ""
