@@ -1,0 +1,148 @@
+{
+  "lang": "fr",
+  "list": [
+    {
+      "city": "Agadir",
+      "neighborhood": [
+
+      ],
+      "region": "Souss-Massa-Draa"
+    },
+
+    {
+      "city": "Beni Mellal",
+      "neighborhood": [
+
+      ],
+      "region": ""
+    },
+
+    {
+      "city": "Casablanca",
+      "neighborhood": [
+        "Aïn chock",
+        "Aïn Diab",
+        "Aïn Sbai",
+        "Belvédère",
+        "Bourgogne",
+        "California",
+        "Hay El Hassani",
+        "Maarif",
+        "Oasis",
+        "Les Roches Noires",
+        "Sidi Maârouf"
+      ],
+      "region": "Grand Casablanca"
+    },
+
+    {
+      "city": "Dakhla",
+      "neighborhood": [
+
+      ],
+      "region": ""
+    },
+
+    {
+      "city": "El Jadida",
+      "neighborhood": [
+
+      ],
+      "region": ""
+    },
+
+    {
+      "city": "Fès",
+      "neighborhood": [
+
+      ],
+      "region": ""
+    },
+
+    {
+      "city": "Guelmim",
+      "neighborhood": [
+
+      ],
+      "region": ""
+    },
+
+    {
+      "city": "Ifrane",
+      "neighborhood": [
+
+      ],
+      "region": ""
+    },
+
+    {
+      "city": "Kenitra",
+      "neighborhood": [
+
+      ],
+      "region": ""
+    },
+
+    {
+      "city": "Laayoune",
+      "neighborhood": [
+
+      ],
+      "region": ""
+    },
+
+    {
+      "city": "Marrakech",
+      "neighborhood": [
+
+      ],
+      "region": ""
+    },
+
+    {
+      "city": "Safi",
+      "neighborhood": [
+        "Azib Derai",
+        "Saada",
+        "Miftah Lkhir",
+        "Hay Essalam",
+        "Hay Anas"
+      ],
+      "region": "Doukkala-Abda"
+    },
+
+    {
+      "city": "Salé",
+      "neighborhood": [
+
+      ],
+      "region": ""
+    },
+
+
+    {
+      "city": "Sidi Rahhal",
+      "neighborhood": [
+
+      ],
+      "region": ""
+    },
+
+    {
+      "city": "Tanger",
+      "neighborhood": [
+
+      ],
+      "region": ""
+    },
+
+    {
+      "city": "Rabat",
+      "neighborhood": [
+
+      ],
+      "region": ""
+    }
+
+  ]
+}

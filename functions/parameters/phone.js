@@ -6,7 +6,6 @@
 var extractPhoneNumber = (text) => {
   var possibleNumbers = [];
   var digits = '1234567890';
-  text = text.replace(/[ .-]+/, '');
   for (var i = 0; i < text.length; i++) {
     if (digits.indexOf(text[i]) != -1 || (text[i] == '+')) {
       var number = '';
@@ -50,12 +49,6 @@ var isMobilePhone = (phone) => {
   }
   return isValid;
 };
-
-console.log(extractPhoneNumber('Mon numéro est 06 55 97 10 68'));
-console.log(extractPhoneNumber('Mon numéro est +212 655 97 10 68'));
-console.log(extractPhoneNumber('Mon numéro est +(212) 655 97 10 68'));
-console.log(extractPhoneNumber('Mon numéro est 06-55-97-10-68'));
-
 
 module.exports = {
   extractPhoneNumber, isMobilePhone

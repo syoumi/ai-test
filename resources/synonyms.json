@@ -194,6 +194,30 @@
           "nouveau",
           "neuf"
         ]
+    },
+
+    {
+        "name": "casablanca",
+        "synonyms": [
+          "casablanca",
+          "casa"
+        ]
+    },
+
+    {
+        "name": "marrakech",
+        "synonyms": [
+          "marrakech",
+          "kech"
+        ]
+    },
+
+    {
+        "name": "safi",
+        "synonyms": [
+          "safi",
+          "asfi"
+        ]
     }
 
 
